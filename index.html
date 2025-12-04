@@ -762,10 +762,276 @@
       text-decoration: underline;
     }
 
+    /* Actions Page Styles */
+    .actions-page-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .action-card {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 2px 8px rgba(40, 54, 24, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .action-card:hover {
+      box-shadow: 0 4px 12px rgba(40, 54, 24, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .action-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      font-family: 'Alegreya', serif;
+    }
+
+    .action-card-content {
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .action-card-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .action-card-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+    }
+
+    .action-card-link:hover {
+      background: rgba(96, 108, 56, 0.1);
+      border-color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .action-card-people-list {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    /* Newsletter Email Modal */
+    .newsletter-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .newsletter-modal {
+      background: white;
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .newsletter-modal-header {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .newsletter-modal-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      font-family: 'Alegreya', serif;
+      margin: 0 0 8px 0;
+    }
+
+    .newsletter-modal-subtitle {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    .newsletter-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-light);
+      padding: 8px;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .newsletter-modal-close:hover {
+      color: var(--primary-dark);
+    }
+
+    .newsletter-modal-content {
+      margin-bottom: 24px;
+    }
+
+    .newsletter-modal-section {
+      margin-bottom: 24px;
+    }
+
+    .newsletter-modal-section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 0 0 12px 0;
+      font-family: 'Alegreya', serif;
+    }
+
+    .newsletter-modal-instructions {
+      background: rgba(96, 108, 56, 0.05);
+      border-left: 4px solid var(--primary);
+      padding: 16px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+
+    .newsletter-modal-instructions ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .newsletter-modal-instructions li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .newsletter-email-list {
+      background: #f9f9f9;
+      border: 1px solid var(--border-soft);
+      border-radius: 6px;
+      padding: 16px;
+      max-height: 300px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      word-break: break-all;
+    }
+
+    .newsletter-email-count {
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .newsletter-modal-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .btn-copy-emails {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-copy-emails:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(96, 108, 56, 0.3);
+    }
+
+    .btn-newsletter-link {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    .btn-newsletter-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(188, 108, 37, 0.3);
+    }
+
     /* Addresses & People view - leave space for floating panel */
     .content-view#peopleView {
       right: 420px; /* Leave space for the floating panel */
       top: 0; /* Will be adjusted dynamically by JavaScript */
+    }
+
+    /* People View Header */
+    .people-view-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--primary);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .people-view-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-print-export {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(188, 108, 37, 0.3);
+      font-family: 'Alegreya', serif;
+    }
+
+    .btn-print-export:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(188, 108, 37, 0.4);
     }
 
     /* Address Table View */
@@ -1040,27 +1306,31 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid rgba(96, 108, 56, 0.15);
-      border-radius: 4px;
-      width: 24px;
-      height: 24px;
+      background: none;
+      border: none;
+      width: auto;
+      height: auto;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       z-index: 10;
       transition: all 0.2s ease;
-      box-shadow: 0 1px 3px rgba(40, 54, 24, 0.08);
-      color: rgba(96, 108, 56, 0.6);
-      opacity: 0.6;
+      padding: 8px;
     }
 
-    .chart-carousel-arrow:hover {
-      background: rgba(255, 255, 255, 0.9);
-      border-color: rgba(96, 108, 56, 0.25);
-      opacity: 1;
-      color: rgba(96, 108, 56, 0.8);
+    .chart-carousel-arrow-symbol {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary-dark);
+      line-height: 1;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .chart-carousel-arrow:hover .chart-carousel-arrow-symbol {
+      color: var(--primary);
+      transform: scale(1.2);
     }
 
     .chart-carousel-arrow-left {
@@ -1532,53 +1802,6 @@
 
     .person-info-inline .person-info-item strong {
       color: var(--river);
-    }
-
-    /* Flyer/Preview container - Option 1: Scale down the flyer */
-    .flyer-preview-container {
-      width: 100%;
-      max-height: 600px; /* Default height, can be expanded */
-      overflow: auto;
-      border: 1px solid rgba(96, 108, 56, 0.2);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Option 2: Expand the container */
-    .flyer-preview-container.expanded {
-      max-height: 80vh; /* 80% of viewport height */
-      min-height: 500px;
-    }
-
-    /* The flyer/preview content itself */
-    .flyer-preview {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-    }
-
-    /* Scale down the flyer if needed (better for smaller containers) */
-    .flyer-preview.scaled {
-      transform: scale(0.75); /* Adjust scale value (0.75 = 75%) */
-      transform-origin: center;
-    }
-
-    /* Alternative: Use CSS to fit content */
-    .flyer-preview.fit-width {
-      width: 100%;
-      height: auto;
-    }
-
-    .flyer-preview.fit-height {
-      width: auto;
-      height: 100%;
     }
 
     .loading, .error, .empty {
@@ -3489,9 +3712,7 @@
               <div class="chart-carousel-wrapper">
                 <div class="chart-carousel-container">
                   <button class="chart-carousel-arrow chart-carousel-arrow-left" aria-label="Previous chart">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                      <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
+                    <span class="chart-carousel-arrow-symbol">‹</span>
                   </button>
                   <div class="chart-carousel-track">
                     <div class="chart-container-small chart-carousel-slide active" data-chart-index="0">
@@ -3499,30 +3720,16 @@
                       <canvas id="zoneOverviewLeftAddressesChart"></canvas>
                     </div>
                     <div class="chart-container-small chart-carousel-slide" data-chart-index="1">
-                      <div class="chart-title">Damage Status</div>
-                      <canvas id="zoneOverviewLeftDamageChart"></canvas>
-                    </div>
-                    <div class="chart-container-small chart-carousel-slide" data-chart-index="2">
-                      <div class="chart-title">Household Status</div>
-                      <canvas id="zoneOverviewLeftHouseholdChart"></canvas>
-                    </div>
-                    <div class="chart-container-small chart-carousel-slide" data-chart-index="3">
                       <div class="chart-title">Streets Distribution</div>
                       <canvas id="zoneOverviewLeftStreetsChart"></canvas>
                     </div>
-                    <div class="chart-container-small chart-carousel-slide" data-chart-index="4">
+                    <div class="chart-container-small chart-carousel-slide" data-chart-index="2">
                       <div class="chart-title">People per Address</div>
                       <canvas id="zoneOverviewLeftPeopleChart"></canvas>
                     </div>
-                    <div class="chart-container-small chart-carousel-slide" data-chart-index="5">
-                      <div class="chart-title">Rebuild Status</div>
-                      <canvas id="zoneOverviewLeftRebuildChart"></canvas>
-                    </div>
                   </div>
                   <button class="chart-carousel-arrow chart-carousel-arrow-right" aria-label="Next chart">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
+                    <span class="chart-carousel-arrow-symbol">›</span>
                   </button>
                   <div class="chart-carousel-dots" data-carousel="left"></div>
                 </div>
@@ -3532,40 +3739,24 @@
               <div class="chart-carousel-wrapper">
                 <div class="chart-carousel-container">
                   <button class="chart-carousel-arrow chart-carousel-arrow-left" aria-label="Previous chart">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                      <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
+                    <span class="chart-carousel-arrow-symbol">‹</span>
                   </button>
                   <div class="chart-carousel-track">
                     <div class="chart-container-small chart-carousel-slide active" data-chart-index="0">
-                      <div class="chart-title">Addresses Contacted</div>
-                      <canvas id="zoneOverviewRightAddressesChart"></canvas>
-                    </div>
-                    <div class="chart-container-small chart-carousel-slide" data-chart-index="1">
                       <div class="chart-title">Damage Status</div>
                       <canvas id="zoneOverviewRightDamageChart"></canvas>
+                    </div>
+                    <div class="chart-container-small chart-carousel-slide" data-chart-index="1">
+                      <div class="chart-title">Rebuild Status</div>
+                      <canvas id="zoneOverviewRightRebuildChart"></canvas>
                     </div>
                     <div class="chart-container-small chart-carousel-slide" data-chart-index="2">
                       <div class="chart-title">Household Status</div>
                       <canvas id="zoneOverviewRightHouseholdChart"></canvas>
                     </div>
-                    <div class="chart-container-small chart-carousel-slide" data-chart-index="3">
-                      <div class="chart-title">Streets Distribution</div>
-                      <canvas id="zoneOverviewRightStreetsChart"></canvas>
-                    </div>
-                    <div class="chart-container-small chart-carousel-slide" data-chart-index="4">
-                      <div class="chart-title">People per Address</div>
-                      <canvas id="zoneOverviewRightPeopleChart"></canvas>
-                    </div>
-                    <div class="chart-container-small chart-carousel-slide" data-chart-index="5">
-                      <div class="chart-title">Rebuild Status</div>
-                      <canvas id="zoneOverviewRightRebuildChart"></canvas>
-                    </div>
                   </div>
                   <button class="chart-carousel-arrow chart-carousel-arrow-right" aria-label="Next chart">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
+                    <span class="chart-carousel-arrow-symbol">›</span>
                   </button>
                   <div class="chart-carousel-dots" data-carousel="right"></div>
                 </div>
@@ -3627,6 +3818,16 @@
               </div>
             </div>
           </div>
+          
+          <!-- Panel E: Zone Leadership -->
+          <div class="home-panel">
+            <div class="home-panel-header">
+              <h2>Zone Leadership</h2>
+            </div>
+            <div class="home-panel-content" id="zoneLeadershipContent">
+              <div class="loading">Loading zone leadership...</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -3638,6 +3839,13 @@
 
     <!-- Addresses & People View (Table) -->
     <div class="content-view" id="peopleView" style="display: none;">
+      <div class="people-view-header">
+        <h2 style="margin: 0; color: var(--primary-dark); font-size: 1.8rem; letter-spacing: 0.5px; font-family: 'Alegreya', serif;">Addresses & People</h2>
+        <div class="people-view-actions">
+          <button class="btn-print-export" id="btnPrintAddresses">🖨️ Print</button>
+          <button class="btn-print-export" id="btnExportAddresses">📥 Export CSV</button>
+        </div>
+      </div>
       <div id="peopleTableView"></div>
     </div>
 
@@ -3646,264 +3854,7 @@
       <h2 style="margin-top: 0; color: var(--primary-dark); font-size: 2rem; letter-spacing: 0.5px; text-shadow: 0 2px 4px rgba(40, 54, 24, 0.1);">Tools</h2>
       
       <div class="tools-grid">
-      <!-- Contact List Creator Module -->
-      <div class="tool-module" id="contactListCreator">
-        <div class="tool-module-header" style="cursor: pointer;">
-          <h3>Contact List Creator <span class="tool-module-toggle">▼</span></h3>
-          <p>Generate lists of people with their contact information, addresses, and notes for email, phone, or walk lists.</p>
-        </div>
-        
-        <div class="tool-module-content">
-        <!-- Single-Page Wizard -->
-        <div class="list-creator-wizard" id="listCreatorWizard">
-          <!-- Quick Start Section -->
-          <div class="wizard-section">
-            <h4 class="wizard-section-title">Quick Start</h4>
-            <p class="wizard-section-desc">Choose a common list to get started quickly:</p>
-            <div class="quick-start-options">
-              <button class="quick-start-btn" data-action="email-everyone">
-                <span class="quick-start-icon">📧</span>
-                <span class="quick-start-label">Email Everyone</span>
-                <span class="quick-start-desc">Send emails to all people with email addresses</span>
-              </button>
-              <button class="quick-start-btn" data-action="phone-uncontacted">
-                <span class="quick-start-icon">📞</span>
-                <span class="quick-start-label">Call Uncontacted</span>
-                <span class="quick-start-desc">Call people you haven't contacted yet</span>
-              </button>
-              <button class="quick-start-btn" data-action="walk-standing">
-                <span class="quick-start-icon">🚶</span>
-                <span class="quick-start-label">Walk List</span>
-                <span class="quick-start-desc">Visit Standing homes in person</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Main Form Section -->
-          <div class="wizard-section">
-            <h4 class="wizard-section-title">Or Build Your Own List</h4>
-            <p class="wizard-section-desc">Answer two simple questions to create a custom list:</p>
-            
-            <!-- Question 1: What do you want to do? -->
-            <div class="wizard-question">
-              <label class="wizard-question-label">1. What do you want to do?</label>
-              <p class="wizard-question-help">Choose how you'll contact people</p>
-              <div class="wizard-radio-group">
-                <label class="wizard-radio-option">
-                  <input type="radio" name="listPurpose" value="email" id="purposeEmail">
-                  <div class="radio-content">
-                    <span class="radio-icon">📧</span>
-                    <span class="radio-label">Send Emails</span>
-                    <span class="radio-desc">I want to email people</span>
-                  </div>
-                </label>
-                <label class="wizard-radio-option">
-                  <input type="radio" name="listPurpose" value="phone" id="purposePhone">
-                  <div class="radio-content">
-                    <span class="radio-icon">📞</span>
-                    <span class="radio-label">Make Phone Calls</span>
-                    <span class="radio-desc">I want to call people</span>
-                  </div>
-                </label>
-                <label class="wizard-radio-option">
-                  <input type="radio" name="listPurpose" value="walk" id="purposeWalk">
-                  <div class="radio-content">
-                    <span class="radio-icon">🚶</span>
-                    <span class="radio-label">Visit In Person</span>
-                    <span class="radio-desc">I want to visit homes in person</span>
-                  </div>
-                </label>
-              </div>
-            </div>
-
-            <!-- Question 2: Who do you want to contact? -->
-            <div class="wizard-question">
-              <label class="wizard-question-label">2. Who do you want to contact?</label>
-              <p class="wizard-question-help">Choose which people to include</p>
-              <div class="wizard-radio-group">
-                <label class="wizard-radio-option">
-                  <input type="radio" name="listWho" value="everyone" id="whoEveryone">
-                  <div class="radio-content">
-                    <span class="radio-icon">👥</span>
-                    <span class="radio-label">Everyone</span>
-                    <span class="radio-desc">All people in the database</span>
-                  </div>
-                </label>
-                <label class="wizard-radio-option">
-                  <input type="radio" name="listWho" value="uncontacted" id="whoUncontacted">
-                  <div class="radio-content">
-                    <span class="radio-icon">📭</span>
-                    <span class="radio-label">Haven't Contacted Yet</span>
-                    <span class="radio-desc">People I haven't reached out to</span>
-                  </div>
-                </label>
-                <label class="wizard-radio-option">
-                  <input type="radio" name="listWho" value="followup" id="whoFollowup">
-                  <div class="radio-content">
-                    <span class="radio-icon">🔔</span>
-                    <span class="radio-label">Need Follow-up</span>
-                    <span class="radio-desc">People marked as needing follow-up</span>
-                  </div>
-                </label>
-                <label class="wizard-radio-option">
-                  <input type="radio" name="listWho" value="oldcontact" id="whoOldContact">
-                  <div class="radio-content">
-                    <span class="radio-icon">📅</span>
-                    <span class="radio-label">Not Contacted Recently</span>
-                    <span class="radio-desc">Haven't contacted in 2+ months</span>
-                  </div>
-                </label>
-                <label class="wizard-radio-option">
-                  <input type="radio" name="listWho" value="custom" id="whoCustom">
-                  <div class="radio-content">
-                    <span class="radio-icon">⚙️</span>
-                    <span class="radio-label">Custom Selection</span>
-                    <span class="radio-desc">Choose specific filters (advanced)</span>
-                  </div>
-                </label>
-              </div>
-            </div>
-
-            <!-- Custom Filters (Collapsed by Default) -->
-            <div class="wizard-custom-filters" id="customFiltersSection" style="display: none;">
-              <div class="custom-filters-header">
-                <h5>Custom Filters</h5>
-                <p>Narrow down your list with specific criteria</p>
-              </div>
-              <div class="custom-filters-content">
-                <div class="builder-filters">
-                  <div class="builder-filter-group">
-                    <label>Damage Status</label>
-                    <div class="checkbox-group" id="customFilterDamage">
-                      <label class="checkbox-option all-option">
-                        <input type="checkbox" value="__all__" id="damageAll">
-                        <span>All</span>
-                      </label>
-                      <label class="checkbox-option">
-                        <input type="checkbox" value="Standing" class="damage-option">
-                        <span>Standing</span>
-                      </label>
-                      <label class="checkbox-option">
-                        <input type="checkbox" value="Partial Loss" class="damage-option">
-                        <span>Partial Loss</span>
-                      </label>
-                      <label class="checkbox-option">
-                        <input type="checkbox" value="Total Loss" class="damage-option">
-                        <span>Total Loss</span>
-                      </label>
-                      <label class="checkbox-option">
-                        <input type="checkbox" value="" class="damage-option">
-                        <span>(not set)</span>
-                      </label>
-                    </div>
-                  </div>
-                  
-                  <div class="builder-filter-group">
-                    <label>Household Status</label>
-                    <div class="checkbox-group" id="customFilterStatus">
-                      <label class="checkbox-option all-option">
-                        <input type="checkbox" value="__all__" id="statusAll">
-                        <span>All</span>
-                      </label>
-                      <label class="checkbox-option">
-                        <input type="checkbox" value="Staying" class="status-option">
-                        <span>Staying</span>
-                      </label>
-                      <label class="checkbox-option">
-                        <input type="checkbox" value="Rebuilding" class="status-option">
-                        <span>Rebuilding</span>
-                      </label>
-                      <label class="checkbox-option">
-                        <input type="checkbox" value="Selling" class="status-option">
-                        <span>Selling</span>
-                      </label>
-                      <label class="checkbox-option">
-                        <input type="checkbox" value="Renter/Moved" class="status-option">
-                        <span>Renter/Moved</span>
-                      </label>
-                      <label class="checkbox-option">
-                        <input type="checkbox" value="" class="status-option">
-                        <span>(not set)</span>
-                      </label>
-                    </div>
-                  </div>
-                  
-                  <div class="builder-filter-group">
-                    <label>Contact Status</label>
-                    <select id="customFilterContact">
-                      <option value="all">All</option>
-                      <option value="contacted">Contacted</option>
-                      <option value="uncontacted">Uncontacted</option>
-                    </select>
-                  </div>
-                  
-                  <div class="builder-filter-group">
-                    <label>Follow-up Needed</label>
-                    <select id="customFilterFollowup">
-                      <option value="all">All</option>
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
-                    </select>
-                  </div>
-                  
-                  <div class="builder-filter-group">
-                    <label>Street</label>
-                    <select id="customFilterStreet">
-                      <option value="all">All Streets</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Summary Section -->
-            <div class="wizard-summary" id="listSummary" style="display: none;">
-              <div class="summary-content">
-                <h5>Your List Summary</h5>
-                <div class="summary-details">
-                  <div class="summary-item">
-                    <strong>Purpose:</strong> <span id="summaryPurpose">-</span>
-                  </div>
-                  <div class="summary-item">
-                    <strong>Who:</strong> <span id="summaryWho">-</span>
-                  </div>
-                  <div class="summary-item" id="summaryFilters" style="display: none;">
-                    <strong>Filters:</strong> <span id="summaryFiltersText">-</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Generate Button -->
-            <div class="wizard-actions">
-              <button class="btn-generate-large" id="btnGenerateList" disabled>
-                <span class="btn-icon">✨</span>
-                <span>Generate List</span>
-              </button>
-              <p class="wizard-help-text">Select your options above to enable the generate button</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- List Results -->
-        <div class="list-creator-step" id="stepListResults" style="display: none;">
-          <div class="list-results-header">
-            <h4 id="listResultsTitle">Contact List</h4>
-            <div class="list-results-actions">
-              <button class="btn-export" id="btnExportList">📥 Export to CSV</button>
-              <button class="btn-print" id="btnPrintList">🖨️ Print</button>
-              <button class="btn-back" id="btnBackToBuilder">← Create New List</button>
-            </div>
-          </div>
-          <div class="list-results-info">
-            <span id="listResultsCount">0 contacts</span>
-          </div>
-          <div class="list-results-content" id="listResultsContent">
-            <!-- List will be generated here -->
-          </div>
-        </div>
-        </div>
-      </div>
+      <!-- Contact List Creator Module removed - functionality integrated into Addresses & People view -->
 
       <!-- Zone Analysis Generator Module -->
       <div class="tool-module" id="zoneReportGenerator">
@@ -3960,7 +3911,9 @@
     <!-- Actions View -->
     <div class="content-view" id="meetupsView" style="display: none;">
       <h2 style="margin-top: 0; color: var(--primary-dark); font-size: 2rem; letter-spacing: 0.5px; text-shadow: 0 2px 4px rgba(40, 54, 24, 0.1);">Actions</h2>
-      <p>Actions feature coming soon...</p>
+      <div id="actionsPageContent" style="margin-top: 24px;">
+        <div class="loading">Loading actions...</div>
+      </div>
     </div>
 
     <!-- Help View -->
@@ -4018,8 +3971,24 @@
     let currentDamageFilter = 'all'; // Current damage filter
     let currentStatusFilter = 'all'; // Current household status filter
     let currentRebuildFilter = 'all'; // Current rebuild status filter
+    let currentCaptainFilter = 'all'; // Current captain assigned filter
     let showContactedAddresses = true; // Show addresses with contacted people
     let showUncontactedAddresses = true; // Show addresses with uncontacted people
+    
+    // Sequential rebuild stages (in order)
+    const REBUILD_STAGES_SEQUENTIAL = [
+      'Debris Removal & Site Clearance',
+      'Professional Selection (Architect/Engineer & Builder)',
+      'Plan Preparation & Design Stage',
+      'Permit Application & Submittal',
+      'Plan Check & Agency Review',
+      'Plan Revision & Recheck',
+      'Permit Issuance',
+      'Construction',
+      'Mandatory Inspections',
+      'Final Inspection & Sign-Off',
+      'Certificate of Occupancy'
+    ];
     let tableSortColumn = null; // Current sort column
     let tableSortDirection = 'asc'; // Sort direction: 'asc' or 'desc'
     let zoneMap = null; // Leaflet map instance
@@ -4801,6 +4770,7 @@
         currentStreetFilter = 'all';
         currentDamageFilter = 'all';
         currentStatusFilter = 'all';
+        currentCaptainFilter = 'all';
         
         // Extract zone name from ZoneName column if available
         const zoneNameCol = headers.find(h => h.toLowerCase() === 'zonename' || h.toLowerCase() === 'zone name');
@@ -4972,6 +4942,35 @@
       return normalizeStreet(street);
     }
 
+    // Sort rebuild statuses in sequential order (known stages first, then custom values alphabetically)
+    function sortRebuildStatusesSequential(statuses) {
+      const sequential = [];
+      const custom = [];
+      
+      // First, add known sequential stages that exist in the data
+      REBUILD_STAGES_SEQUENTIAL.forEach(stage => {
+        if (statuses.some(s => s.toLowerCase().trim() === stage.toLowerCase().trim())) {
+          // Find the exact match (preserving original case from data)
+          const match = statuses.find(s => s.toLowerCase().trim() === stage.toLowerCase().trim());
+          if (match) sequential.push(match);
+        }
+      });
+      
+      // Then add any custom statuses that aren't in the sequential list, sorted alphabetically
+      statuses.forEach(status => {
+        const statusLower = status.toLowerCase().trim();
+        const isInSequential = REBUILD_STAGES_SEQUENTIAL.some(stage => 
+          stage.toLowerCase().trim() === statusLower
+        );
+        if (!isInSequential) {
+          custom.push(status);
+        }
+      });
+      custom.sort();
+      
+      return [...sequential, ...custom];
+    }
+    
     // Get unique streets from all addresses
     function getUniqueStreets(addresses) {
       const streets = new Set();
@@ -5038,6 +5037,33 @@
       });
       
       return Array.from(statuses).sort();
+    }
+
+    // Parse multiple captains from semicolon-separated values in NC Name, NC Phone, NC Email columns
+    function parseCaptains(ncName, ncPhone, ncEmail) {
+      if (!ncName || !ncName.trim()) {
+        return [];
+      }
+      
+      // Split each field by semicolon and trim whitespace
+      const names = (ncName || '').split(';').map(s => s.trim()).filter(s => s);
+      const phones = (ncPhone || '').split(';').map(s => s.trim()).filter(s => s);
+      const emails = (ncEmail || '').split(';').map(s => s.trim()).filter(s => s);
+      
+      // Find the maximum count to handle mismatched counts gracefully
+      const maxCount = Math.max(names.length, phones.length, emails.length);
+      
+      // Match up by position: name[0] with phone[0] and email[0], etc.
+      const captains = [];
+      for (let i = 0; i < maxCount; i++) {
+        captains.push({
+          name: names[i] || 'N/A',
+          phone: phones[i] || 'N/A',
+          email: emails[i] || 'N/A'
+        });
+      }
+      
+      return captains;
     }
 
     // Check if an address has any contacted people
@@ -5253,6 +5279,7 @@
       currentDamageFilter = 'all';
       currentStatusFilter = 'all';
       currentRebuildFilter = 'all';
+      currentCaptainFilter = 'all';
       // Set contact filters
       showUncontactedAddresses = true;
       showContactedAddresses = false;
@@ -5268,6 +5295,7 @@
       currentDamageFilter = ''; // Empty string for "(not set)"
       currentStatusFilter = 'all';
       currentRebuildFilter = 'all';
+      currentCaptainFilter = 'all';
       // Reset contact filters to show all
       showUncontactedAddresses = true;
       showContactedAddresses = true;
@@ -5283,6 +5311,7 @@
       currentDamageFilter = 'all';
       currentStatusFilter = 'all';
       currentRebuildFilter = 'all';
+      currentCaptainFilter = 'all';
       showUncontactedAddresses = true;
       showContactedAddresses = true;
       switchView('people');
@@ -5362,6 +5391,13 @@
         html = '<div class="empty">No quick actions at this time.</div>';
       }
 
+      // Add "More Actions" link at the bottom
+      html += `
+        <div class="quick-action-more" style="margin-top: 16px; padding-top: 16px; border-top: 2px solid rgba(96, 108, 56, 0.2); text-align: center;">
+          <a href="#" class="quick-action-link" id="moreActionsLink" style="font-size: 1rem;">More Actions →</a>
+        </div>
+      `;
+
       content.innerHTML = html;
 
       // Add event listeners for navigation links
@@ -5390,6 +5426,287 @@
             navigateToAddress(address);
           }
         });
+      });
+
+      // Add event listener for "More Actions" link
+      const moreActionsLink = document.getElementById('moreActionsLink');
+      if (moreActionsLink) {
+        moreActionsLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          switchView('meetups');
+        });
+      }
+    }
+
+    // Display quick actions on Actions page
+    function displayActionsPage() {
+      const content = document.getElementById('actionsPageContent');
+      if (!content) return;
+
+      if (!sheetData || !sheetData.addressMap) {
+        content.innerHTML = '<div class="loading">Loading actions...</div>';
+        return;
+      }
+
+      const actions = calculateQuickActions();
+      let html = '';
+      let hasActions = false;
+
+      // Uncontacted addresses action
+      if (actions.uncontactedCount > 0) {
+        hasActions = true;
+        html += `
+          <div class="action-card">
+            <div class="action-card-title">Contact Uncontacted Addresses</div>
+            <div class="action-card-content">
+              There are <strong>${actions.uncontactedCount}</strong> address${actions.uncontactedCount !== 1 ? 'es' : ''} you haven't contacted. Contact 3 of them right now.
+            </div>
+            <div class="action-card-links">
+              <a href="#" class="action-card-link" id="actionsPageUncontactedLink">see uncontacted addresses</a>
+              <a href="https://docs.google.com/document/d/1hP1N5eXjddsZfFj9GQHjIokVfAvf_Ir4gcb7bVSOFRI/view" target="_blank" rel="noopener noreferrer" class="action-card-link">sample script</a>
+            </div>
+          </div>
+        `;
+      }
+
+      // Missing damage status action
+      if (actions.noDamageStatusCount > 0) {
+        hasActions = true;
+        html += `
+          <div class="action-card">
+            <div class="action-card-title">Update Damage Status</div>
+            <div class="action-card-content">
+              There are <strong>${actions.noDamageStatusCount}</strong> address${actions.noDamageStatusCount !== 1 ? 'es' : ''} with no Damage Status assigned. Update 5 addresses now.
+            </div>
+            <div class="action-card-links">
+              <a href="#" class="action-card-link" id="actionsPageNoDamageStatusLink">see addresses without damage status</a>
+            </div>
+          </div>
+        `;
+      }
+
+      // Follow-up people action
+      if (actions.followupPeople && actions.followupPeople.length > 0) {
+        hasActions = true;
+        const peopleNames = actions.followupPeople.map((person, index) => {
+          return `<a href="#" class="action-card-link person-link-actions" data-address="${person.address.replace(/"/g, '&quot;')}">${person.name}</a>`;
+        }).join(', ');
+        
+        html += `
+          <div class="action-card">
+            <div class="action-card-title">Follow-up Needed</div>
+            <div class="action-card-content">
+              You have <strong>${actions.followupPeople.length}</strong> ${actions.followupPeople.length !== 1 ? 'people' : 'person'} who ${actions.followupPeople.length !== 1 ? 'need' : 'needs'} a follow-up. Follow up with 1 of them now.
+            </div>
+            <div class="action-card-people-list">
+              ${peopleNames}
+            </div>
+          </div>
+        `;
+      }
+
+      // Share Altagether Newsletter action (always shown)
+      hasActions = true;
+      html += `
+        <div class="action-card">
+          <div class="action-card-title">Share Altagether Newsletter</div>
+          <div class="action-card-content">
+            Share the latest Altagether newsletter with your neighbors. Get a list of email addresses from your spreadsheet and share the newsletter link.
+          </div>
+          <div class="action-card-links">
+            <a href="#" class="action-card-link" id="shareNewsletterLink">get email addresses</a>
+            <a href="https://altagether.org/newsletter" target="_blank" rel="noopener noreferrer" class="action-card-link">view newsletter</a>
+          </div>
+        </div>
+      `;
+
+      if (!hasActions) {
+        html = '<div class="empty">No actions available at this time.</div>';
+      } else {
+        html = `<div class="actions-page-container">${html}</div>`;
+      }
+
+      content.innerHTML = html;
+
+      // Add event listeners for navigation links
+      const uncontactedLink = document.getElementById('actionsPageUncontactedLink');
+      if (uncontactedLink) {
+        uncontactedLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          navigateToUncontactedAddresses();
+        });
+      }
+
+      const noDamageStatusLink = document.getElementById('actionsPageNoDamageStatusLink');
+      if (noDamageStatusLink) {
+        noDamageStatusLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          navigateToAddressesWithoutDamageStatus();
+        });
+      }
+
+      // Add event listeners for person name links
+      document.querySelectorAll('.person-link-actions').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const address = link.getAttribute('data-address');
+          if (address) {
+            navigateToAddress(address);
+          }
+        });
+      });
+
+      // Add event listener for Share Newsletter link
+      const shareNewsletterLink = document.getElementById('shareNewsletterLink');
+      if (shareNewsletterLink) {
+        shareNewsletterLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          showNewsletterEmailGuide();
+        });
+      }
+    }
+
+    // Show newsletter email guide modal
+    function showNewsletterEmailGuide() {
+      if (!sheetData || !sheetData.addressMap) {
+        alert('Please load your spreadsheet first to extract email addresses.');
+        return;
+      }
+
+      // Find email column
+      const headers = sheetData.headers;
+      const emailCol = headers.find(h => {
+        const lower = h.toLowerCase();
+        return lower.includes('email address') || (lower.includes('email') && !lower.includes('nc email'));
+      });
+
+      if (!emailCol) {
+        alert('No email address column found in your spreadsheet. Please make sure you have a column with "Email" or "Email Address" in the name.');
+        return;
+      }
+
+      // Extract unique email addresses
+      const emailSet = new Set();
+      sheetData.data.forEach(row => {
+        const email = (row[emailCol] || '').trim();
+        if (email && email.includes('@')) {
+          // Basic email validation
+          emailSet.add(email.toLowerCase());
+        }
+      });
+
+      const emails = Array.from(emailSet).sort();
+      const emailCount = emails.length;
+
+      if (emailCount === 0) {
+        alert('No email addresses found in your spreadsheet. Please make sure the email column contains valid email addresses.');
+        return;
+      }
+
+      // Create modal HTML
+      const modalHTML = `
+        <div class="newsletter-modal-overlay" id="newsletterModalOverlay">
+          <div class="newsletter-modal">
+            <button class="newsletter-modal-close" id="newsletterModalClose">&times;</button>
+            <div class="newsletter-modal-header">
+              <h3 class="newsletter-modal-title">Share Altagether Newsletter</h3>
+              <p class="newsletter-modal-subtitle">Get email addresses and share the latest newsletter with your neighbors</p>
+            </div>
+            <div class="newsletter-modal-content">
+              <div class="newsletter-modal-section">
+                <h4 class="newsletter-modal-section-title">Step 1: Copy Email Addresses</h4>
+                <div class="newsletter-modal-instructions">
+                  <p>We found <strong>${emailCount}</strong> unique email address${emailCount !== 1 ? 'es' : ''} in your spreadsheet. Copy them below:</p>
+                </div>
+                <div class="newsletter-email-count">${emailCount} email address${emailCount !== 1 ? 'es' : ''} found</div>
+                <div class="newsletter-email-list" id="newsletterEmailList">${emails.join(', ')}</div>
+              </div>
+              <div class="newsletter-modal-section">
+                <h4 class="newsletter-modal-section-title">Step 2: Share the Newsletter</h4>
+                <div class="newsletter-modal-instructions">
+                  <ol>
+                    <li>Copy the email addresses above (click the "Copy All Emails" button)</li>
+                    <li>Open your email client (Gmail, Outlook, etc.)</li>
+                    <li>Paste the email addresses into the "To" field</li>
+                    <li>Click the "View Newsletter" button below to get the latest newsletter link</li>
+                    <li>Share the newsletter link: <strong>https://altagether.org/newsletter</strong></li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <div class="newsletter-modal-actions">
+              <button class="btn-copy-emails" id="copyEmailsBtn">Copy All Emails</button>
+              <a href="https://altagether.org/newsletter" target="_blank" rel="noopener noreferrer" class="btn-newsletter-link">View Newsletter</a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Remove existing modal if any
+      const existingModal = document.getElementById('newsletterModalOverlay');
+      if (existingModal) {
+        existingModal.remove();
+      }
+
+      // Add modal to page
+      document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+      // Add event listeners
+      const modalOverlay = document.getElementById('newsletterModalOverlay');
+      const closeBtn = document.getElementById('newsletterModalClose');
+      const copyBtn = document.getElementById('copyEmailsBtn');
+
+      // Close on overlay click
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          modalOverlay.remove();
+        }
+      });
+
+      // Close on close button click
+      closeBtn.addEventListener('click', () => {
+        modalOverlay.remove();
+      });
+
+      // Copy emails button
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(emails.join(', '));
+          copyBtn.textContent = '✓ Copied!';
+          copyBtn.style.background = 'linear-gradient(135deg, #4caf50 0%, #388e3c 100%)';
+          setTimeout(() => {
+            copyBtn.textContent = 'Copy All Emails';
+            copyBtn.style.background = 'linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)';
+          }, 2000);
+        } catch (err) {
+          // Fallback for older browsers
+          const textArea = document.createElement('textarea');
+          textArea.value = emails.join(', ');
+          textArea.style.position = 'fixed';
+          textArea.style.opacity = '0';
+          document.body.appendChild(textArea);
+          textArea.select();
+          try {
+            document.execCommand('copy');
+            copyBtn.textContent = '✓ Copied!';
+            copyBtn.style.background = 'linear-gradient(135deg, #4caf50 0%, #388e3c 100%)';
+            setTimeout(() => {
+              copyBtn.textContent = 'Copy All Emails';
+              copyBtn.style.background = 'linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)';
+            }, 2000);
+          } catch (fallbackErr) {
+            alert('Failed to copy. Please manually select and copy the email addresses.');
+          }
+          document.body.removeChild(textArea);
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', function escapeHandler(e) {
+        if (e.key === 'Escape' && modalOverlay && document.body.contains(modalOverlay)) {
+          modalOverlay.remove();
+          document.removeEventListener('keydown', escapeHandler);
+        }
       });
     }
 
@@ -5474,7 +5791,28 @@
           }
         });
       }
-      const rebuildStatusesArray = Array.from(rebuildStatuses).sort();
+      // Sort rebuild statuses in sequential order, with any custom values at the end
+      const rebuildStatusesArray = sortRebuildStatusesSequential(Array.from(rebuildStatuses));
+      
+      // Check if zone has multiple captains and get captain names for filter
+      const ncNameCol = headers.find(h => h.toLowerCase().includes('nc name'));
+      const ncPhoneCol = headers.find(h => h.toLowerCase().includes('nc phone'));
+      const ncEmailCol = headers.find(h => h.toLowerCase().includes('nc email'));
+      const captainAssignedCol = headers.find(h => h.toLowerCase().includes('captain assigned'));
+      let hasMultipleCaptains = false;
+      let captainNames = [];
+      
+      if (ncNameCol && sheetData.data && sheetData.data.length > 0 && captainAssignedCol) {
+        const firstRow = sheetData.data[0];
+        const ncName = firstRow[ncNameCol] ? (firstRow[ncNameCol] || '').trim() : '';
+        const ncPhone = ncPhoneCol ? (firstRow[ncPhoneCol] || '').trim() : '';
+        const ncEmail = ncEmailCol ? (firstRow[ncEmailCol] || '').trim() : '';
+        const captains = parseCaptains(ncName, ncPhone, ncEmail);
+        hasMultipleCaptains = captains.length > 1;
+        if (hasMultipleCaptains) {
+          captainNames = captains.map(c => c.name).filter(n => n !== 'N/A');
+        }
+      }
 
       const html = `
         <span class="filters-label">Filters:</span>
@@ -5494,6 +5832,11 @@
         ${rebuildCol ? `<select id="persistentRebuildFilter" class="${currentRebuildFilter !== 'all' ? 'filter-active' : ''}">
           <option value="all" ${currentRebuildFilter === 'all' ? 'selected' : ''}>All Rebuild Status</option>
           ${rebuildStatusesArray.map(status => `<option value="${status.replace(/"/g, '&quot;')}" ${currentRebuildFilter === status ? 'selected' : ''}>${status}</option>`).join('')}
+        </select>` : ''}
+        ${hasMultipleCaptains && captainAssignedCol ? `<select id="persistentCaptainFilter" class="${currentCaptainFilter !== 'all' ? 'filter-active' : ''}">
+          <option value="all" ${currentCaptainFilter === 'all' ? 'selected' : ''}>Any Captain</option>
+          <option value="" ${currentCaptainFilter === '' ? 'selected' : ''}>(not specified)</option>
+          ${captainNames.map(name => `<option value="${escapeHtml(name).replace(/"/g, '&quot;')}" ${currentCaptainFilter === name ? 'selected' : ''}>${escapeHtml(name)}</option>`).join('')}
         </select>` : ''}
         ${contactDateCol ? `
         <div class="contact-filter-group">
@@ -5553,6 +5896,10 @@
       if (oldUncontactedCheckbox) {
         oldUncontactedCheckbox.replaceWith(oldUncontactedCheckbox.cloneNode(true));
       }
+      const oldCaptainFilter = document.getElementById('persistentCaptainFilter');
+      if (oldCaptainFilter) {
+        oldCaptainFilter.replaceWith(oldCaptainFilter.cloneNode(true));
+      }
       // Add event handlers
       const streetFilter = document.getElementById('persistentStreetFilter');
       if (streetFilter) {
@@ -5607,6 +5954,21 @@
             rebuildFilter.classList.add('filter-active');
           } else {
             rebuildFilter.classList.remove('filter-active');
+          }
+          displayAddressTable();
+          displayAddressList(Array.from(sheetData.addressMap.keys()).sort());
+          updateMapMarkers();
+        });
+      }
+
+      const captainFilter = document.getElementById('persistentCaptainFilter');
+      if (captainFilter) {
+        captainFilter.addEventListener('change', (e) => {
+          currentCaptainFilter = e.target.value;
+          if (currentCaptainFilter !== 'all') {
+            captainFilter.classList.add('filter-active');
+          } else {
+            captainFilter.classList.remove('filter-active');
           }
           displayAddressTable();
           displayAddressList(Array.from(sheetData.addressMap.keys()).sort());
@@ -5683,7 +6045,8 @@
           }
         });
       }
-      const rebuildStatusesArray = Array.from(rebuildStatuses).sort();
+      // Sort rebuild statuses in sequential order, with any custom values at the end
+      const rebuildStatusesArray = sortRebuildStatusesSequential(Array.from(rebuildStatuses));
       
       // Filter addresses
       const filteredAddresses = addresses.filter(addr => {
@@ -5705,6 +6068,25 @@
             if (rebuildValue !== currentRebuildFilter) return false;
           } else {
             return false;
+          }
+        }
+        // Captain assigned filter
+        if (currentCaptainFilter !== 'all') {
+          const captainAssignedCol = headers.find(h => h.toLowerCase().includes('captain assigned'));
+          if (captainAssignedCol) {
+            const rows = sheetData.addressMap.get(addr);
+            if (rows && rows[0]) {
+              const captainValue = (rows[0][captainAssignedCol] || '').trim();
+              if (currentCaptainFilter === '') {
+                // Filter for "(not specified)" - addresses with no captain assigned
+                if (captainValue && captainValue.trim() !== '') return false;
+              } else {
+                if (captainValue !== currentCaptainFilter) return false;
+              }
+            } else {
+              // No rows for address - check if we're filtering for "(not specified)"
+              if (currentCaptainFilter !== '') return false;
+            }
           }
         }
         // Contact status filter
@@ -5850,6 +6232,364 @@
           }
         });
       });
+      
+      // Wire up print and export buttons
+      setupPrintExportHandlers();
+    }
+    
+    // Setup print and export button handlers
+    function setupPrintExportHandlers() {
+      const printBtn = document.getElementById('btnPrintAddresses');
+      const exportBtn = document.getElementById('btnExportAddresses');
+      
+      if (printBtn) {
+        // Remove existing handler to avoid duplicates
+        const newPrintBtn = printBtn.cloneNode(true);
+        printBtn.parentNode.replaceChild(newPrintBtn, printBtn);
+        newPrintBtn.addEventListener('click', () => printAddresses());
+      }
+      
+      if (exportBtn) {
+        // Remove existing handler to avoid duplicates
+        const newExportBtn = exportBtn.cloneNode(true);
+        exportBtn.parentNode.replaceChild(newExportBtn, exportBtn);
+        newExportBtn.addEventListener('click', () => exportAddressesToCSV());
+      }
+    }
+    
+    // Get filtered addresses (same logic as displayAddressTable)
+    function getFilteredAddresses() {
+      if (!sheetData || !sheetData.addressMap) return [];
+      
+      const addresses = Array.from(sheetData.addressMap.keys()).sort();
+      const headers = sheetData.headers;
+      const damageCol = headers.find(h => h.toLowerCase().includes('damage'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const rebuildCol = headers.find(h => h.toLowerCase().includes('rebuild'));
+      const contactDateCol = headers.find(h => h.toLowerCase().includes('contact') && h.toLowerCase().includes('date'));
+      const captainAssignedCol = headers.find(h => h.toLowerCase().includes('captain assigned'));
+      
+      return addresses.filter(addr => {
+        if (currentStreetFilter !== 'all' && extractStreet(addr) !== currentStreetFilter) return false;
+        if (currentDamageFilter !== 'all') {
+          if (currentDamageFilter === '') {
+            const damage = getAddressDamage(addr);
+            if (damage && damage.trim() !== '' && damage !== '(not set)') return false;
+          } else {
+            if (getAddressDamage(addr) !== currentDamageFilter) return false;
+          }
+        }
+        if (currentStatusFilter !== 'all' && getAddressStatus(addr) !== currentStatusFilter) return false;
+        if (currentRebuildFilter !== 'all' && rebuildCol) {
+          const rows = sheetData.addressMap.get(addr);
+          if (rows && rows[0]) {
+            const rebuildValue = (rows[0][rebuildCol] || '').trim();
+            if (rebuildValue !== currentRebuildFilter) return false;
+          } else {
+            return false;
+          }
+        }
+        if (currentCaptainFilter !== 'all' && captainAssignedCol) {
+          const rows = sheetData.addressMap.get(addr);
+          if (rows && rows[0]) {
+            const captainValue = (rows[0][captainAssignedCol] || '').trim();
+            if (currentCaptainFilter === '') {
+              if (captainValue && captainValue.trim() !== '') return false;
+            } else {
+              if (captainValue !== currentCaptainFilter) return false;
+            }
+          } else {
+            if (currentCaptainFilter !== '') return false;
+          }
+        }
+        if (contactDateCol) {
+          const isContacted = isAddressContacted(addr);
+          if (isContacted && !showContactedAddresses) return false;
+          if (!isContacted && !showUncontactedAddresses) return false;
+        }
+        return true;
+      });
+    }
+    
+    // Print addresses with print-friendly formatting
+    function printAddresses() {
+      const filteredAddresses = getFilteredAddresses();
+      if (filteredAddresses.length === 0) {
+        alert('No addresses to print. Please adjust your filters.');
+        return;
+      }
+      
+      const headers = sheetData.headers;
+      const residentNameCol = headers.find(h => {
+        const lower = h.toLowerCase();
+        return lower.includes('resident name') || (lower.includes('name') && !lower.includes('first') && !lower.includes('last') && !lower.includes('nc'));
+      });
+      const phoneCol = headers.find(h => h.toLowerCase().includes('phone') && !h.toLowerCase().includes('nc'));
+      const emailCol = headers.find(h => h.toLowerCase().includes('email'));
+      const damageCol = headers.find(h => h.toLowerCase().includes('damage'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const rebuildCol = headers.find(h => h.toLowerCase().includes('rebuild'));
+      const contactDateCol = headers.find(h => h.toLowerCase().includes('contact') && h.toLowerCase().includes('date'));
+      
+      // Group addresses
+      const groupedByAddress = {};
+      filteredAddresses.forEach(addr => {
+        const rows = sheetData.addressMap.get(addr);
+        if (!rows || rows.length === 0) return;
+        
+        const people = [];
+        if (rows && residentNameCol) {
+          rows.forEach(row => {
+            if (row[residentNameCol] && row[residentNameCol].trim()) {
+              const person = {
+                name: row[residentNameCol].trim(),
+                phone: phoneCol ? (row[phoneCol] || '').trim() : '',
+                email: emailCol ? (row[emailCol] || '').trim() : ''
+              };
+              people.push(person);
+            }
+          });
+        }
+        
+        const damage = damageCol && rows[0] ? (rows[0][damageCol] || '').trim() : '';
+        const status = statusCol && rows[0] ? (rows[0][statusCol] || '').trim() : '';
+        const rebuild = rebuildCol && rows[0] ? (rows[0][rebuildCol] || '').trim() : '';
+        const contactDate = contactDateCol && rows[0] ? (rows[0][contactDateCol] || '').trim() : '';
+        
+        groupedByAddress[addr] = {
+          people: people,
+          damage: damage,
+          status: status,
+          rebuild: rebuild,
+          contactDate: contactDate
+        };
+      });
+      
+      // Create print window
+      const printWindow = window.open('', '_blank');
+      const addressCount = Object.keys(groupedByAddress).length;
+      const peopleCount = filteredAddresses.reduce((sum, addr) => {
+        return sum + (groupedByAddress[addr]?.people.length || 0);
+      }, 0);
+      
+      let html = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Addresses & People - ${addressCount} Address${addressCount !== 1 ? 'es' : ''}</title>
+          <style>
+            @media print {
+              @page { margin: 1in; }
+            }
+            body {
+              font-family: 'Alegreya', serif;
+              padding: 20px;
+              color: #283618;
+            }
+            h1 {
+              color: #283618;
+              margin-bottom: 8px;
+              font-size: 1.8rem;
+            }
+            .print-meta {
+              color: #606c38;
+              font-size: 0.9rem;
+              margin-bottom: 24px;
+            }
+            .address-group {
+              page-break-inside: avoid;
+              margin-bottom: 24px;
+              border: 2px solid #606c38;
+              border-radius: 8px;
+              overflow: hidden;
+            }
+            .address-header {
+              background: linear-gradient(135deg, #606c38 0%, #283618 100%);
+              color: #fefae0;
+              padding: 12px 16px;
+              font-weight: 700;
+              font-size: 1.1rem;
+            }
+            .address-count {
+              font-size: 0.9rem;
+              font-weight: 600;
+              opacity: 0.9;
+            }
+            .people-list {
+              padding: 16px;
+              background: #fff;
+            }
+            .person-item {
+              padding: 12px;
+              margin-bottom: 12px;
+              background: rgba(96, 108, 56, 0.05);
+              border-radius: 6px;
+              border-left: 3px solid #606c38;
+            }
+            .person-name {
+              font-weight: 700;
+              font-size: 1.05rem;
+              color: #283618;
+              margin-bottom: 8px;
+            }
+            .person-detail {
+              font-size: 0.95rem;
+              margin: 4px 0;
+              color: #606c38;
+            }
+            .person-detail strong {
+              color: #283618;
+            }
+            .address-info {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+              gap: 8px;
+              margin-top: 8px;
+              padding-top: 8px;
+              border-top: 1px solid rgba(96, 108, 56, 0.2);
+              font-size: 0.85rem;
+              color: #606c38;
+            }
+          </style>
+        </head>
+        <body>
+          <h1>Addresses & People</h1>
+          <div class="print-meta">${peopleCount} contact${peopleCount !== 1 ? 's' : ''} at ${addressCount} address${addressCount !== 1 ? 'es' : ''}</div>
+      `;
+      
+      Object.keys(groupedByAddress).sort().forEach(address => {
+        const data = groupedByAddress[address];
+        html += `
+          <div class="address-group">
+            <div class="address-header">
+              ${escapeHtml(address)} <span class="address-count">(${data.people.length} ${data.people.length === 1 ? 'person' : 'people'})</span>
+            </div>
+            <div class="people-list">
+        `;
+        
+        data.people.forEach(person => {
+          html += `
+            <div class="person-item">
+              <div class="person-name">${escapeHtml(person.name)}</div>
+              ${person.phone ? `<div class="person-detail"><strong>Phone:</strong> ${escapeHtml(person.phone)}</div>` : ''}
+              ${person.email ? `<div class="person-detail"><strong>Email:</strong> ${escapeHtml(person.email)}</div>` : ''}
+            </div>
+          `;
+        });
+        
+        html += `
+              <div class="address-info">
+                ${data.damage ? `<div><strong>Damage:</strong> ${escapeHtml(data.damage)}</div>` : ''}
+                ${data.status ? `<div><strong>Status:</strong> ${escapeHtml(data.status)}</div>` : ''}
+                ${data.rebuild ? `<div><strong>Rebuild:</strong> ${escapeHtml(data.rebuild)}</div>` : ''}
+                ${data.contactDate ? `<div><strong>Last Contact:</strong> ${escapeHtml(data.contactDate)}</div>` : ''}
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      
+      html += `
+        </body>
+        </html>
+      `;
+      
+      printWindow.document.write(html);
+      printWindow.document.close();
+      
+      // Wait for content to load before printing
+      setTimeout(() => {
+        printWindow.print();
+      }, 250);
+    }
+    
+    // Export addresses to CSV
+    function exportAddressesToCSV() {
+      const filteredAddresses = getFilteredAddresses();
+      if (filteredAddresses.length === 0) {
+        alert('No addresses to export. Please adjust your filters.');
+        return;
+      }
+      
+      const headers = sheetData.headers;
+      const residentNameCol = headers.find(h => {
+        const lower = h.toLowerCase();
+        return lower.includes('resident name') || (lower.includes('name') && !lower.includes('first') && !lower.includes('last') && !lower.includes('nc'));
+      });
+      const phoneCol = headers.find(h => h.toLowerCase().includes('phone') && !h.toLowerCase().includes('nc'));
+      const emailCol = headers.find(h => h.toLowerCase().includes('email'));
+      const damageCol = headers.find(h => h.toLowerCase().includes('damage'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const rebuildCol = headers.find(h => h.toLowerCase().includes('rebuild'));
+      const contactDateCol = headers.find(h => h.toLowerCase().includes('contact') && h.toLowerCase().includes('date'));
+      
+      // Build CSV headers
+      const csvHeaders = ['Address', 'Name'];
+      if (phoneCol) csvHeaders.push('Phone');
+      if (emailCol) csvHeaders.push('Email');
+      if (damageCol) csvHeaders.push('Damage Status');
+      if (statusCol) csvHeaders.push('Household Status');
+      if (rebuildCol) csvHeaders.push('Rebuild Status');
+      if (contactDateCol) csvHeaders.push('Last Contact');
+      
+      // Build CSV rows
+      const csvRows = [];
+      filteredAddresses.forEach(addr => {
+        const rows = sheetData.addressMap.get(addr);
+        if (!rows || rows.length === 0) {
+          // Address with no people
+          const row = [addr, ''];
+          if (phoneCol) row.push('');
+          if (emailCol) row.push('');
+          if (damageCol) row.push('');
+          if (statusCol) row.push('');
+          if (rebuildCol) row.push('');
+          if (contactDateCol) row.push('');
+          csvRows.push(row);
+          return;
+        }
+        
+        // One row per person
+        rows.forEach((row, index) => {
+          const personName = residentNameCol ? (row[residentNameCol] || '').trim() : '';
+          // Only include row if person has a name
+          if (personName || index === 0) {
+            const csvRow = [addr, personName];
+            if (phoneCol) csvRow.push(row[phoneCol] || '');
+            if (emailCol) csvRow.push(row[emailCol] || '');
+            if (damageCol) csvRow.push(index === 0 ? (rows[0][damageCol] || '') : '');
+            if (statusCol) csvRow.push(index === 0 ? (rows[0][statusCol] || '') : '');
+            if (rebuildCol) csvRow.push(index === 0 ? (rows[0][rebuildCol] || '') : '');
+            if (contactDateCol) csvRow.push(row[contactDateCol] || '');
+            csvRows.push(csvRow);
+          }
+        });
+      });
+      
+      // Convert to CSV format
+      const escapeCSV = (cell) => {
+        const str = String(cell || '');
+        if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+          return `"${str.replace(/"/g, '""')}"`;
+        }
+        return str;
+      };
+      
+      const csv = [
+        csvHeaders.map(escapeCSV).join(','),
+        ...csvRows.map(row => row.map(escapeCSV).join(','))
+      ].join('\n');
+      
+      // Download CSV
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      link.setAttribute('href', url);
+      link.setAttribute('download', `addresses-${Date.now()}.csv`);
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
 
     function displayAddressList(addresses) {
@@ -5907,6 +6647,25 @@
             return false;
           }
         }
+        // Captain assigned filter
+        if (currentCaptainFilter !== 'all') {
+          const captainAssignedCol = headers.find(h => h.toLowerCase().includes('captain assigned'));
+          if (captainAssignedCol) {
+            const rows = sheetData.addressMap.get(addr);
+            if (rows && rows[0]) {
+              const captainValue = (rows[0][captainAssignedCol] || '').trim();
+              if (currentCaptainFilter === '') {
+                // Filter for "(not specified)" - addresses with no captain assigned
+                if (captainValue && captainValue.trim() !== '') return false;
+              } else {
+                if (captainValue !== currentCaptainFilter) return false;
+              }
+            } else {
+              // No rows for address - check if we're filtering for "(not specified)"
+              if (currentCaptainFilter !== '') return false;
+            }
+          }
+        }
         // Contact status filter
         if (contactDateCol) {
           const isContacted = isAddressContacted(addr);
@@ -5959,7 +6718,27 @@
       }
 
       const rows = sheetData.addressMap.get(address);
-      const { headers, addressCol } = sheetData;
+      const { headers, addressCol, data } = sheetData;
+
+      // Check if zone has multiple captains (only show Captain Assigned dropdown if so)
+      const ncNameCol = headers.find(h => h.toLowerCase().includes('nc name'));
+      const ncPhoneCol = headers.find(h => h.toLowerCase().includes('nc phone'));
+      const ncEmailCol = headers.find(h => h.toLowerCase().includes('nc email'));
+      let hasMultipleCaptains = false;
+      let captains = [];
+      let captainAssignedCol = null;
+      
+      if (ncNameCol && data && data.length > 0) {
+        const firstRow = data[0];
+        const ncName = firstRow[ncNameCol] ? (firstRow[ncNameCol] || '').trim() : '';
+        const ncPhone = ncPhoneCol ? (firstRow[ncPhoneCol] || '').trim() : '';
+        const ncEmail = ncEmailCol ? (firstRow[ncEmailCol] || '').trim() : '';
+        captains = parseCaptains(ncName, ncPhone, ncEmail);
+        hasMultipleCaptains = captains.length > 1;
+        
+        // Find Captain Assigned column if it exists
+        captainAssignedCol = headers.find(h => h.toLowerCase().includes('captain assigned'));
+      }
 
       // Find relevant columns (exclude address column itself)
       const detailCols = headers.filter(h => 
@@ -5980,6 +6759,11 @@
         'rebuild stage',
         'rebuild status'
       ];
+      
+      // Add Captain Assigned if zone has multiple captains and column exists
+      if (hasMultipleCaptains && captainAssignedCol) {
+        addressLevelDisplayFields.push('captain assigned');
+      }
       
       // Separate address-level and person-level columns
       const addressLevelCols = headers.filter(h => {
@@ -6121,6 +6905,7 @@
           const isRebuildStage = lower.includes('rebuild stage') || lower.includes('rebuild status');
           const isIndoorsRemediated = lower.includes('indoors remediated');
           const isSoilRemediated = lower.includes('soil remediated');
+          const isCaptainAssigned = lower.includes('captain assigned');
           const isEditable = accessToken; // All fields editable when signed in
           
           // Skip remediation fields if damage status doesn't match
@@ -6182,6 +6967,20 @@
                         data-original-value="${firstRowValue.replace(/"/g, '&quot;')}">
                   <option value="">(not set)</option>
                   ${rebuildStageOptions.map(opt => `<option value="${opt.replace(/"/g, '&quot;')}" ${opt === firstRowValue ? 'selected' : ''}>${opt}</option>`).join('')}
+                </select>
+              </div>`;
+            } else if (isCaptainAssigned && hasMultipleCaptains && captains.length > 0) {
+              // Captain Assigned: dropdown with captain names (only if multiple captains exist)
+              const captainNames = captains.map(c => c.name).filter(n => n !== 'N/A');
+              html += `<div class="person-info">
+                <strong>${col}:</strong>
+                <select class="editable-dropdown" 
+                        data-address="${address.replace(/"/g, '&quot;')}" 
+                        data-address-level="true"
+                        data-column="${col}"
+                        data-original-value="${firstRowValue.replace(/"/g, '&quot;')}">
+                  <option value="">(not specified)</option>
+                  ${captainNames.map(name => `<option value="${name.replace(/"/g, '&quot;')}" ${name === firstRowValue ? 'selected' : ''}>${escapeHtml(name)}</option>`).join('')}
                 </select>
               </div>`;
             } else if (isIndoorsRemediated || isSoilRemediated) {
@@ -6881,6 +7680,16 @@
           }, 100);
         } else {
           displayQuickActions(); // Show loading state even without data
+        }
+      } else if (viewName === 'meetups') {
+        // Display actions page when switching to Actions view
+        if (sheetData && sheetData.addressMap) {
+          displayActionsPage();
+        } else {
+          const actionsContent = document.getElementById('actionsPageContent');
+          if (actionsContent) {
+            actionsContent.innerHTML = '<div class="loading">Loading actions...</div>';
+          }
         }
       } else if (viewName === 'people' && sheetData && sheetData.addressMap) {
         displayAddressTable();
@@ -8767,6 +9576,26 @@
           }
         }
         
+        // Captain assigned filter
+        if (currentCaptainFilter !== 'all') {
+          const captainAssignedCol = sheetData.headers.find(h => h.toLowerCase().includes('captain assigned'));
+          if (captainAssignedCol) {
+            const rows = sheetData.addressMap.get(address);
+            if (rows && rows[0]) {
+              const captainValue = (rows[0][captainAssignedCol] || '').trim();
+              if (currentCaptainFilter === '') {
+                // Filter for "(not specified)" - addresses with no captain assigned
+                if (captainValue && captainValue.trim() !== '') return false;
+              } else {
+                if (captainValue !== currentCaptainFilter) return false;
+              }
+            } else {
+              // No rows for address - check if we're filtering for "(not specified)"
+              if (currentCaptainFilter !== '') return false;
+            }
+          }
+        }
+        
         // Contact status filter
         if (contactDateCol) {
           const isContacted = isAddressContacted(address);
@@ -9880,6 +10709,12 @@
       }
       fetchAndDisplayCentralFeed();
       displayQuickActions();
+      updateZoneLeadership();
+      
+      // Update Actions page if it's currently visible
+      if (currentView === 'meetups') {
+        displayActionsPage();
+      }
       
       // Update Zone Overview charts after a short delay to ensure DOM is ready
       setTimeout(() => {
@@ -10077,6 +10912,77 @@
           lastUpdatedSpan.textContent = lastUpdatedText;
         }
       }
+    }
+    
+    // Panel E: Zone Leadership
+    function updateZoneLeadership() {
+      if (!sheetData || !sheetData.headers || !sheetData.data || sheetData.data.length === 0) {
+        const content = document.getElementById('zoneLeadershipContent');
+        if (content) {
+          content.innerHTML = '<div class="empty">No zone leadership data available</div>';
+        }
+        return;
+      }
+      
+      const content = document.getElementById('zoneLeadershipContent');
+      if (!content) return;
+      
+      const headers = sheetData.headers;
+      const allRows = sheetData.data;
+      
+      // Find NC columns (case-insensitive)
+      const ncNameCol = headers.find(h => h.toLowerCase().includes('nc name'));
+      const ncPhoneCol = headers.find(h => h.toLowerCase().includes('nc phone'));
+      const ncEmailCol = headers.find(h => h.toLowerCase().includes('nc email'));
+      
+      // Get captain data from first row (should be the same for all rows in a zone)
+      const firstRow = allRows[0];
+      if (!firstRow) {
+        content.innerHTML = '<div class="empty">No zone leadership data available</div>';
+        return;
+      }
+      
+      const ncName = ncNameCol ? (firstRow[ncNameCol] || '').trim() : '';
+      const ncPhone = ncPhoneCol ? (firstRow[ncPhoneCol] || '').trim() : '';
+      const ncEmail = ncEmailCol ? (firstRow[ncEmailCol] || '').trim() : '';
+      
+      // Parse captains
+      const captains = parseCaptains(ncName, ncPhone, ncEmail);
+      
+      if (captains.length === 0) {
+        content.innerHTML = '<div class="empty">No neighborhood captains assigned to this zone</div>';
+        return;
+      }
+      
+      // Build HTML for each captain
+      let html = '<div style="display: flex; flex-direction: column; gap: 20px;">';
+      
+      captains.forEach((captain, index) => {
+        html += `
+          <div style="padding: 16px; background: rgba(96, 108, 56, 0.05); border-radius: 8px; border: 2px solid rgba(96, 108, 56, 0.2);">
+            <div style="font-weight: 700; font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 12px; font-family: 'Alegreya', serif;">
+              ${escapeHtml(captain.name)}
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem;">
+              ${captain.phone !== 'N/A' ? `
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="color: var(--text-light); font-weight: 600;">Phone:</span>
+                  <a href="tel:${captain.phone.replace(/[^0-9+()-]/g, '')}" style="color: var(--primary); text-decoration: none;">${escapeHtml(captain.phone)}</a>
+                </div>
+              ` : ''}
+              ${captain.email !== 'N/A' ? `
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="color: var(--text-light); font-weight: 600;">Email:</span>
+                  <a href="mailto:${escapeHtml(captain.email)}" style="color: var(--primary); text-decoration: none; word-break: break-word;">${escapeHtml(captain.email)}</a>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      });
+      
+      html += '</div>';
+      content.innerHTML = html;
     }
     
     // Store chart references
@@ -10535,28 +11441,31 @@
       ];
 
       // Map chart definitions to the correct canvas IDs for each carousel
+      // LEFT: Addresses Contacted (0), Streets Distribution (3), People per Address (4)
+      // RIGHT: Damage Status (1), Rebuild Status (5), Household Status (2)
+      const chartIndexMap = {
+        'left': [0, 3, 4],  // Addresses Contacted, Streets Distribution, People per Address
+        'right': [1, 5, 2]  // Damage Status, Rebuild Status, Household Status
+      };
+      
       const canvasIdMap = {
         'left': [
           'zoneOverviewLeftAddressesChart',
-          'zoneOverviewLeftDamageChart',
-          'zoneOverviewLeftHouseholdChart',
           'zoneOverviewLeftStreetsChart',
-          'zoneOverviewLeftPeopleChart',
-          'zoneOverviewLeftRebuildChart'
+          'zoneOverviewLeftPeopleChart'
         ],
         'right': [
-          'zoneOverviewRightAddressesChart',
           'zoneOverviewRightDamageChart',
-          'zoneOverviewRightHouseholdChart',
-          'zoneOverviewRightStreetsChart',
-          'zoneOverviewRightPeopleChart',
-          'zoneOverviewRightRebuildChart'
+          'zoneOverviewRightRebuildChart',
+          'zoneOverviewRightHouseholdChart'
         ]
       };
       
-      const charts = allCharts.map((chart, index) => ({
-        ...chart,
-        canvasId: canvasIdMap[carouselId][index]
+      // Get the chart indices for this carousel
+      const chartIndices = chartIndexMap[carouselId];
+      const charts = chartIndices.map((originalIndex, carouselIndex) => ({
+        ...allCharts[originalIndex],
+        canvasId: canvasIdMap[carouselId][carouselIndex]
       }));
       if (chartIndex >= charts.length) return;
       
@@ -10611,9 +11520,19 @@
       zoneOverviewCarouselRight.currentIndex = 0;
       
       // Show first slide in each carousel
-      document.querySelectorAll('.chart-carousel-slide').forEach((slide, index) => {
+      const leftSlides = document.querySelectorAll('.chart-carousel-wrapper:nth-child(1) .chart-carousel-slide');
+      const rightSlides = document.querySelectorAll('.chart-carousel-wrapper:nth-child(2) .chart-carousel-slide');
+      
+      leftSlides.forEach((slide, index) => {
         slide.classList.remove('active');
-        if (index === 0 || index === 6) { // First slide of each carousel
+        if (index === 0) {
+          slide.classList.add('active');
+        }
+      });
+      
+      rightSlides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === 0) {
           slide.classList.add('active');
         }
       });
@@ -11858,6 +12777,16 @@
       const ncPhoneCol = headers.find(h => h.toLowerCase().includes('nc phone'));
       const ncEmailCol = headers.find(h => h.toLowerCase().includes('nc email'));
       
+      // Parse captains for display
+      let captains = [];
+      if (ncNameCol && allRows.length > 0) {
+        const firstRow = allRows[0];
+        const ncName = firstRow[ncNameCol] ? (firstRow[ncNameCol] || '').trim() : '';
+        const ncPhone = ncPhoneCol ? (firstRow[ncPhoneCol] || '').trim() : '';
+        const ncEmail = ncEmailCol ? (firstRow[ncEmailCol] || '').trim() : '';
+        captains = parseCaptains(ncName, ncPhone, ncEmail);
+      }
+      
       // Calculate statistics
       const stats = calculateZoneStatistics(headers, addressMap);
       
@@ -11907,6 +12836,14 @@
               <div class="zone-report-stat-value">${stats.followupCount}</div>
               <div class="zone-report-stat-label">Follow-ups Needed</div>
             </div>
+            <div class="zone-report-stat-card">
+              <div class="zone-report-stat-value">${stats.uniquePhoneCount}</div>
+              <div class="zone-report-stat-label">Unique Phone Numbers</div>
+            </div>
+            <div class="zone-report-stat-card">
+              <div class="zone-report-stat-value">${stats.uniqueEmailCount}</div>
+              <div class="zone-report-stat-label">Unique Email Addresses</div>
+            </div>
           </div>
         </div>
         
@@ -11914,28 +12851,33 @@
         <div class="zone-report-section">
           <h2 class="zone-report-section-title">Zone Information</h2>
           <div class="zone-report-subsection">
-            <h3 class="zone-report-subsection-title">Neighborhood Captain</h3>
-            <table class="zone-report-table">
-              <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-              </tr>
-              <tr>
-                <td>${ncNameCol && allRows[0] ? escapeHtml(allRows[0][ncNameCol] || 'N/A') : 'N/A'}</td>
-                <td>${ncPhoneCol && allRows[0] ? escapeHtml(allRows[0][ncPhoneCol] || 'N/A') : 'N/A'}</td>
-                <td>${ncEmailCol && allRows[0] ? escapeHtml(allRows[0][ncEmailCol] || 'N/A') : 'N/A'}</td>
-              </tr>
-            </table>
-          </div>
-          ${zoneNotes ? `
-            <div class="zone-report-subsection">
-              <h3 class="zone-report-subsection-title">Zone Notes</h3>
-              <div style="background: rgba(96, 108, 56, 0.05); padding: 16px; border-radius: 6px; white-space: pre-wrap; line-height: 1.6;">
-                ${escapeHtml(zoneNotes)}
+            <h3 class="zone-report-subsection-title">Neighborhood Captain${captains.length > 1 ? 's' : ''}</h3>
+            ${captains.length > 0 ? `
+              <div style="display: flex; flex-direction: column; gap: 20px;">
+                ${captains.map((captain, index) => `
+                  <div style="padding: 16px; background: rgba(96, 108, 56, 0.05); border-radius: 8px; border: 2px solid rgba(96, 108, 56, 0.2);">
+                    <div style="font-weight: 700; font-size: 1.1rem; color: var(--primary-dark); margin-bottom: 12px; font-family: 'Alegreya', serif;">
+                      ${escapeHtml(captain.name)}
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem;">
+                      ${captain.phone !== 'N/A' ? `
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                          <span style="color: var(--text-light); font-weight: 600;">Phone:</span>
+                          <span style="color: var(--primary);">${escapeHtml(captain.phone)}</span>
+                        </div>
+                      ` : ''}
+                      ${captain.email !== 'N/A' ? `
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                          <span style="color: var(--text-light); font-weight: 600;">Email:</span>
+                          <span style="color: var(--primary); word-break: break-word;">${escapeHtml(captain.email)}</span>
+                        </div>
+                      ` : ''}
+                    </div>
+                  </div>
+                `).join('')}
               </div>
-            </div>
-          ` : ''}
+            ` : '<p>No neighborhood captains assigned to this zone</p>'}
+          </div>
         </div>
         
         <!-- Damage Analysis -->
@@ -12164,7 +13106,9 @@
           'Never contacted': 0
         },
         streetStats: {},
-        dataCompleteness: {}
+        dataCompleteness: {},
+        uniquePhoneCount: 0,
+        uniqueEmailCount: 0
       };
       
       // Find columns
@@ -12325,6 +13269,44 @@
           rate: totalRows > 0 ? Math.round((complete / totalRows) * 100) : 0
         };
       }
+      
+      // Count unique phone numbers from all phone columns
+      const allPhoneCols = headers.filter(h => {
+        const lower = h.toLowerCase();
+        return (lower.includes('phone') || lower.includes('cell') || lower.includes('mobile')) && 
+               !lower.includes('nc phone') && 
+               !lower.includes('email');
+      });
+      const uniquePhones = new Set();
+      allRows.forEach(row => {
+        allPhoneCols.forEach(col => {
+          const phone = row[col] ? String(row[col]).trim() : '';
+          if (phone) {
+            // Normalize phone number (remove common formatting for better uniqueness)
+            const normalized = phone.replace(/[\s\-\(\)\.]/g, '').toLowerCase();
+            if (normalized.length >= 10) { // Only count valid-looking phone numbers
+              uniquePhones.add(normalized);
+            }
+          }
+        });
+      });
+      stats.uniquePhoneCount = uniquePhones.size;
+      
+      // Count unique email addresses from all email columns
+      const allEmailCols = headers.filter(h => {
+        const lower = h.toLowerCase();
+        return lower.includes('email') && !lower.includes('nc email');
+      });
+      const uniqueEmails = new Set();
+      allRows.forEach(row => {
+        allEmailCols.forEach(col => {
+          const email = row[col] ? String(row[col]).trim() : '';
+          if (email && email.includes('@')) { // Basic email validation
+            uniqueEmails.add(email.toLowerCase()); // Case-insensitive
+          }
+        });
+      });
+      stats.uniqueEmailCount = uniqueEmails.size;
       
       return stats;
     }

@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Zone Flyer Generator (MVP)</title>
+  <title>Altagether Flyer Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #f5f5f5;
@@ -35,8 +38,10 @@
 
     h1 {
       margin: 0 0 1rem;
-      font-family: var(--font-header);
-      font-size: 1.6rem;
+      font-family: 'Alegreya', serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: 0.5px;
     }
 
     .layout {
@@ -67,6 +72,35 @@
     }
 
     .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .form-section {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .form-section:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .form-section-header {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .form-section-content {
       display: grid;
       grid-template-columns: 1fr;
       gap: 0.75rem;
@@ -169,7 +203,7 @@
     .flyer-container {
       background: #fdfdfd;
       border-radius: 10px;
-      padding: 1rem;
+      padding: 1rem 1rem 0.5rem 1rem; /* Reduce bottom padding */
       border: 1px solid var(--border-soft);
       box-shadow: 0 4px 10px rgba(0,0,0,0.06);
       overflow: visible;
@@ -198,7 +232,8 @@
       position: relative;
       margin: 0 auto;
       width: 4.25in; /* Scaled width: 8.5in * 0.5 */
-      min-height: 5.5in; /* Scaled height: 11in * 0.5 */
+      min-height: 0; /* Remove fixed min-height */
+      height: fit-content; /* Let it size to content */
       display: flex;
       justify-content: center;
       align-items: flex-start;
@@ -207,35 +242,40 @@
     @media (min-width: 1400px) {
       .flyer-scale-container {
         width: 4.675in;
-        min-height: 6.05in;
+        min-height: 0;
+        height: fit-content;
       }
     }
 
     @media (max-width: 1200px) {
       .flyer-scale-container {
         width: 3.825in;
-        min-height: 4.95in;
+        min-height: 0;
+        height: fit-content;
       }
     }
 
     @media (max-width: 900px) {
       .flyer-scale-container {
         width: 3.4in;
-        min-height: 4.4in;
+        min-height: 0;
+        height: fit-content;
       }
     }
 
     @media (max-width: 600px) {
       .flyer-scale-container {
         width: 2.975in;
-        min-height: 3.85in;
+        min-height: 0;
+        height: fit-content;
       }
     }
 
     /* Scale wrapper - sized to scaled dimensions in layout */
     .flyer-scale-wrapper {
       width: 4.25in; /* Actual layout size = scaled size */
-      min-height: 5.5in;
+      min-height: 0; /* Remove fixed min-height */
+      height: fit-content; /* Let it size to content */
       position: relative;
       overflow: visible;
     }
@@ -243,28 +283,32 @@
     @media (min-width: 1400px) {
       .flyer-scale-wrapper {
         width: 4.675in;
-        min-height: 6.05in;
+        min-height: 0;
+        height: fit-content;
       }
     }
 
     @media (max-width: 1200px) {
       .flyer-scale-wrapper {
         width: 3.825in;
-        min-height: 4.95in;
+        min-height: 0;
+        height: fit-content;
       }
     }
 
     @media (max-width: 900px) {
       .flyer-scale-wrapper {
         width: 3.4in;
-        min-height: 4.4in;
+        min-height: 0;
+        height: fit-content;
       }
     }
 
     @media (max-width: 600px) {
       .flyer-scale-wrapper {
         width: 2.975in;
-        min-height: 3.85in;
+        min-height: 0;
+        height: fit-content;
       }
     }
 
@@ -310,6 +354,261 @@
       .flyer {
         transform: scale(0.35);
       }
+    }
+
+    /* Social Media Square Preview */
+    .social-preview-container {
+      background: #fdfdfd;
+      border-radius: 10px;
+      padding: 1rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      overflow: visible;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: fit-content;
+      margin-top: 2rem;
+    }
+
+    .social-preview-scale-container {
+      width: 500px;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #ddd;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .social-preview-scale-container {
+        width: 400px;
+        height: 400px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .social-preview-scale-container {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    /* Square flyer - completely independent layout for social media */
+    .flyer-social {
+      width: 500px !important;
+      height: 500px !important;
+      min-height: 500px !important;
+      margin: 0 !important;
+      padding: 20px !important;
+      box-sizing: border-box;
+      background: linear-gradient(135deg, #2d5016 0%, #3d6b1f 25%, #4a7c28 50%, #5a9a35 75%, #6bb847 100%) !important;
+      background-size: 400% 400% !important;
+      animation: gradientShift 15s ease infinite !important;
+      position: relative;
+      display: flex !important;
+      flex-direction: column !important;
+      font-family: var(--font-body);
+      color: var(--text-main);
+      overflow: hidden;
+      border: none !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+      transform: none !important;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @media (max-width: 900px) {
+      .flyer-social {
+        width: 400px !important;
+        height: 400px !important;
+        padding: 16px !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .flyer-social {
+        width: 300px !important;
+        height: 300px !important;
+        padding: 12px !important;
+      }
+    }
+
+    /* Hide all decorative elements */
+    .flyer-social::before,
+    .flyer-social::after {
+      display: none !important;
+    }
+
+    /* Social media header - clean layout */
+    .flyer-social .flyer-header {
+      margin: 0 0 14px 0 !important;
+      padding: 0 0 12px 0 !important;
+      border-bottom: 3px solid rgba(255, 255, 255, 0.9) !important;
+      flex-shrink: 0;
+      width: 100% !important;
+      background: rgba(255, 255, 255, 0.15) !important;
+      backdrop-filter: blur(10px) !important;
+      padding: 12px 14px !important;
+      border-radius: 8px !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: flex-start !important;
+    }
+
+    .flyer-social .flyer-header > div:first-child {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .flyer-social .flyer-logo {
+      font-size: 12px !important;
+      margin: 0 0 8px 0 !important;
+      line-height: 1.3 !important;
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      width: 100% !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .flyer-social .flyer-title {
+      font-size: 32px !important;
+      margin: 0 0 10px 0 !important;
+      line-height: 1.2 !important;
+      font-weight: 900 !important;
+      color: #ffffff !important;
+      width: 100% !important;
+      word-wrap: break-word;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .flyer-social .flyer-subtitle {
+      display: none !important;
+    }
+
+    .flyer-social .flyer-zone-tag {
+      font-size: 11px !important;
+      padding: 5px 12px !important;
+      border-radius: 12px !important;
+      background: rgba(255, 255, 255, 0.95) !important;
+      color: #2d5016 !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      display: inline-block !important;
+      margin-top: 0 !important;
+      flex-shrink: 0;
+      white-space: nowrap;
+      border: 2px solid rgba(255, 255, 255, 0.8) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    /* Social media highlight */
+    .flyer-social .flyer-highlight {
+      padding: 14px 16px !important;
+      font-size: 15px !important;
+      line-height: 1.5 !important;
+      margin: 0 0 14px 0 !important;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-left: 5px solid #4a7c28 !important;
+      border-radius: 8px !important;
+      width: 100% !important;
+      color: #2d3748 !important;
+      border-top: none !important;
+      border-right: none !important;
+      border-bottom: none !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Compact info line */
+    .flyer-social .flyer-info-line {
+      font-size: 14px !important;
+      line-height: 1.8 !important;
+      margin: 0 0 14px 0 !important;
+      padding: 12px 14px !important;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+      flex-shrink: 0;
+      width: 100% !important;
+      background: rgba(255, 255, 255, 0.2) !important;
+      backdrop-filter: blur(5px) !important;
+      border-radius: 6px !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+      white-space: pre-line !important;
+    }
+
+    /* Hide details grid */
+    .flyer-social .flyer-details-grid {
+      display: none !important;
+    }
+
+    /* Social media body - proper flex sizing with auto-shrink */
+    .flyer-social .flyer-body {
+      font-size: 15px !important;
+      line-height: 1.6 !important;
+      padding: 16px !important;
+      margin: 0 0 14px 0 !important;
+      flex: 1 !important;
+      overflow: hidden !important;
+      overflow-x: hidden !important;
+      min-height: 0 !important;
+      background: rgba(255, 255, 255, 0.95) !important;
+      border: 2px solid rgba(255, 255, 255, 0.8) !important;
+      border-radius: 8px !important;
+      width: 100% !important;
+      color: #2d3748 !important;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Social media footer - minimal */
+    .flyer-social .flyer-footer {
+      padding: 0 !important;
+      margin: 0 !important;
+      flex-shrink: 0;
+      border-top: 2px solid rgba(255, 255, 255, 0.3) !important;
+      padding-top: 12px !important;
+      width: 100% !important;
+      background: transparent !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+
+    .flyer-social .flyer-cta {
+      display: none !important;
+    }
+
+    .flyer-social .flyer-footer > div:first-child {
+      display: none !important;
+    }
+
+    .flyer-social .flyer-contact {
+      font-size: 12px !important;
+      line-height: 1.5 !important;
+      color: #ffffff !important;
+      width: 100% !important;
+      text-align: center !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+      font-weight: 600 !important;
+      background: rgba(0, 0, 0, 0.2) !important;
+      padding: 8px 12px !important;
+      border-radius: 6px !important;
+      backdrop-filter: blur(5px) !important;
+    }
+
+    .flyer-social .flyer-contact .flyer-small {
+      color: #ffffff !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
     }
 
     .flyer-header {
@@ -798,216 +1097,6 @@
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     }
 
-    /* Retro Design Template - Bold & Playful */
-    .flyer.retro {
-      background: linear-gradient(135deg, #fff8e1 0%, #ffffff 50%, #e8f5e9 100%);
-      border: 10px double #9c27b0;
-      box-shadow: 0 24px 72px rgba(156, 39, 176, 0.25), 0 10px 30px rgba(0, 0, 0, 0.2);
-      position: relative;
-      overflow: visible;
-    }
-
-    /* Retro decorative stripes */
-    .flyer.retro::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 8px;
-      background: repeating-linear-gradient(
-        90deg,
-        #9c27b0 0px,
-        #9c27b0 20px,
-        #ff9800 20px,
-        #ff9800 40px,
-        #2196f3 40px,
-        #2196f3 60px,
-        #4caf50 60px,
-        #4caf50 80px
-      );
-      z-index: 0;
-    }
-
-    .flyer.retro::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 8px;
-      background: repeating-linear-gradient(
-        90deg,
-        #4caf50 0px,
-        #4caf50 20px,
-        #2196f3 20px,
-        #2196f3 40px,
-        #ff9800 40px,
-        #ff9800 60px,
-        #9c27b0 60px,
-        #9c27b0 80px
-      );
-      z-index: 0;
-    }
-
-    .flyer.retro > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .flyer.retro .flyer-header {
-      background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
-      margin: -0.75in -0.75in 1.3rem -0.75in;
-      padding: 1.3rem 0.75in 1.1rem;
-      color: #fff;
-      position: relative;
-      border-bottom: 6px solid #ff9800;
-    }
-
-    .flyer.retro .flyer-logo {
-      color: rgba(255, 255, 255, 0.95);
-      font-size: 0.9rem;
-      font-weight: 800;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 0.7rem;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .flyer.retro .flyer-title {
-      font-size: 3.2rem;
-      font-weight: 900;
-      color: #fff;
-      margin: 0.4rem 0 0.6rem;
-      line-height: 1.05;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 152, 0, 0.3);
-      font-family: 'Impact', 'Arial Black', sans-serif;
-      transform: perspective(500px) rotateX(2deg);
-    }
-
-    .flyer.retro .flyer-subtitle {
-      font-size: 1.4rem;
-      color: #ffeb3b;
-      font-weight: 700;
-      margin-bottom: 0;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-      letter-spacing: 0.08em;
-    }
-
-    .flyer.retro .flyer-zone-tag {
-      background: #ff9800;
-      color: #fff;
-      border: 4px solid #fff;
-      font-size: 0.85rem;
-      padding: 0.5rem 1rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      white-space: nowrap;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-      transform: rotate(3deg);
-      display: inline-block;
-    }
-
-    .flyer.retro .flyer-highlight {
-      background: linear-gradient(135deg, #ffeb3b 0%, #ffc107 100%);
-      border: 5px solid #9c27b0;
-      border-radius: 12px;
-      padding: 1.1rem 1.3rem;
-      font-size: 1.15rem;
-      font-weight: 900;
-      margin-bottom: 1.3rem;
-      box-shadow: 0 6px 20px rgba(156, 39, 176, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3);
-      color: #1a1a1a;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      transform: rotate(-1deg);
-    }
-
-    .flyer.retro .flyer-details-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.9rem;
-      margin-bottom: 1.3rem;
-      padding: 0;
-    }
-
-    .flyer.retro .detail-block {
-      background: linear-gradient(135deg, #ffffff 0%, #f3e5f5 100%);
-      border: 4px solid #2196f3;
-      border-left: 10px solid #2196f3;
-      padding: 0.7rem 0.9rem;
-      border-radius: 8px;
-      margin-bottom: 0.6rem;
-      box-shadow: 0 4px 12px rgba(33, 150, 243, 0.25);
-      transform: rotate(0.5deg);
-    }
-
-    .flyer.retro .detail-block:nth-child(even) {
-      transform: rotate(-0.5deg);
-    }
-
-    .flyer.retro .detail-label {
-      color: #2196f3;
-      font-size: 0.75rem;
-      margin-bottom: 0.35rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-    }
-
-    .flyer.retro .detail-value {
-      font-size: 1rem;
-      font-weight: 800;
-      color: #1a1a1a;
-      line-height: 1.35;
-    }
-
-    .flyer.retro .flyer-body {
-      font-size: 1.2rem;
-      line-height: 1.75;
-      background: #fff;
-      padding: 1.4rem;
-      border-radius: 12px;
-      border: 5px solid #4caf50;
-      margin-bottom: 1.3rem;
-      font-weight: 700;
-      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
-      transform: rotate(0.3deg);
-    }
-
-    .flyer.retro .flyer-footer {
-      border-top: 6px solid #ff9800;
-      padding-top: 1.1rem;
-      background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
-      margin: 0 -0.75in -0.75in 0;
-      padding: 1.1rem 0.75in 0.75in;
-      color: #fff;
-    }
-
-    .flyer.retro .flyer-cta {
-      font-size: 1.3rem;
-      color: #fff;
-      font-weight: 900;
-      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .flyer.retro .flyer-small {
-      color: rgba(255, 255, 255, 0.95);
-      font-weight: 700;
-    }
-
-    .flyer.retro .flyer-contact {
-      font-weight: 900;
-      color: #fff;
-      font-size: 1.05rem;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
     /* Mountain Design Template - Nature Inspired */
     .flyer.mountain {
       background: linear-gradient(180deg, #e8f5e9 0%, #ffffff 30%, #ffffff 100%);
@@ -1021,11 +1110,11 @@
     .flyer.mountain::before {
       content: '';
       position: absolute;
-      top: -0.75in;
+      top: 0;
       left: -0.75in;
       right: -0.75in;
       height: 2.5in;
-      background: linear-gradient(180deg, #2e7d32 0%, #1b5e20 50%, #388e3c 100%);
+      background: linear-gradient(180deg, #81c784 0%, #66bb6a 50%, #a5d6a7 100%);
       clip-path: polygon(
         0% 100%,
         15% 85%,
@@ -1051,7 +1140,7 @@
       right: 0.5in;
       width: 80px;
       height: 120px;
-      background: linear-gradient(180deg, transparent 0%, transparent 30%, #2e7d32 30%, #2e7d32 100%);
+      background: linear-gradient(180deg, transparent 0%, transparent 30%, #81c784 30%, #81c784 100%);
       clip-path: polygon(
         50% 0%,
         60% 20%,
@@ -1066,7 +1155,7 @@
         20% 20%,
         40% 20%
       );
-      opacity: 0.15;
+      opacity: 0.2;
       z-index: 0;
     }
 
@@ -1226,20 +1315,20 @@
       overflow: visible;
     }
 
-    /* Decorative line art elements */
+    /* Decorative line art elements - inside printable area */
     .flyer.inksaver::before {
       content: '';
       position: absolute;
-      top: -0.75in;
-      left: -0.75in;
-      right: -0.75in;
-      height: 0.3in;
+      top: 0.5in;
+      left: 0;
+      right: 0;
+      height: 0.15in;
       background: repeating-linear-gradient(
         90deg,
         #000 0px,
-        #000 2px,
-        transparent 2px,
-        transparent 8px
+        #000 1px,
+        transparent 1px,
+        transparent 6px
       );
       z-index: 0;
     }
@@ -1247,16 +1336,16 @@
     .flyer.inksaver::after {
       content: '';
       position: absolute;
-      bottom: -0.75in;
-      left: -0.75in;
-      right: -0.75in;
-      height: 0.3in;
+      bottom: 0.5in;
+      left: 0;
+      right: 0;
+      height: 0.15in;
       background: repeating-linear-gradient(
         90deg,
         #000 0px,
-        #000 2px,
-        transparent 2px,
-        transparent 8px
+        #000 1px,
+        transparent 1px,
+        transparent 6px
       );
       z-index: 0;
     }
@@ -1417,28 +1506,31 @@
     .flyer.inksaver .flyer-footer {
       border-top: 4px solid #000;
       padding-top: 0.7rem;
-      background: #000;
+      background: #fff;
+      background-image: radial-gradient(circle, #999 0.5px, transparent 0.5px);
+      background-size: 4px 4px;
+      background-position: 0 0, 2px 2px;
       margin: 0 -0.75in -0.75in 0;
       padding: 0.7rem 0.75in 0.75in;
-      color: #fff;
+      color: #000;
     }
 
     .flyer.inksaver .flyer-cta {
       font-size: 1rem;
-      color: #fff;
+      color: #000;
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     .flyer.inksaver .flyer-small {
-      color: rgba(255, 255, 255, 0.9);
+      color: #000;
       font-weight: 500;
     }
 
     .flyer.inksaver .flyer-contact {
       font-weight: 700;
-      color: #fff;
+      color: #000;
       font-size: 0.85rem;
     }
 
@@ -1513,10 +1605,6 @@
       }
 
       .flyer.bold .flyer-zone-tag {
-        transform: none !important;
-      }
-
-      .flyer.retro .flyer-zone-tag {
         transform: none !important;
       }
 
@@ -1637,87 +1725,20 @@
         print-color-adjust: exact !important;
       }
 
-      /* Retro design print styles */
-      .flyer.retro .flyer-header {
-        background: #9c27b0 !important;
-        background-image: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%) !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        color: #fff !important;
-      }
-
-      .flyer.retro .flyer-logo,
-      .flyer.retro .flyer-title {
-        color: #fff !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-
-      .flyer.retro .flyer-subtitle {
-        color: #ffeb3b !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-
-      .flyer.retro .flyer-zone-tag {
-        background: #ff9800 !important;
-        color: #fff !important;
-        border-color: #fff !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-
-      .flyer.retro .flyer-highlight {
-        background: #ffeb3b !important;
-        background-image: linear-gradient(135deg, #ffeb3b 0%, #ffc107 100%) !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        border-color: #9c27b0 !important;
-      }
-
-      .flyer.retro .detail-block {
-        border-color: #2196f3 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-
-      .flyer.retro .detail-label {
-        color: #2196f3 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-
-      .flyer.retro .flyer-body {
-        border-color: #4caf50 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-
-      .flyer.retro .flyer-footer {
-        background: #4caf50 !important;
-        background-image: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%) !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        color: #fff !important;
-      }
-
-      .flyer.retro .flyer-cta,
-      .flyer.retro .flyer-contact,
-      .flyer.retro .flyer-small {
-        color: #fff !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-
-      .flyer.retro .flyer-zone-tag,
-      .flyer.retro .flyer-highlight,
-      .flyer.retro .detail-block,
-      .flyer.retro .flyer-body,
-      .flyer.retro .flyer-title {
-        transform: none !important;
-      }
-
       /* Mountain design print styles */
+      .flyer.mountain::before {
+        background: linear-gradient(180deg, #81c784 0%, #66bb6a 50%, #a5d6a7 100%) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        top: 0 !important;
+      }
+
+      .flyer.mountain::after {
+        background: linear-gradient(180deg, transparent 0%, transparent 30%, #81c784 30%, #81c784 100%) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
       .flyer.mountain .flyer-header {
         background: transparent !important;
         color: #1b5e20 !important;
@@ -1819,9 +1840,17 @@
         color: #fff !important;
       }
 
+      .flyer.inksaver::before,
+      .flyer.inksaver::after {
+        top: 0.5in !important;
+        bottom: 0.5in !important;
+      }
+
       .flyer.inksaver .flyer-footer {
-        background: #000 !important;
-        color: #fff !important;
+        background: #fff !important;
+        background-image: radial-gradient(circle, #999 0.5px, transparent 0.5px) !important;
+        background-size: 4px 4px !important;
+        color: #000 !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
@@ -1829,7 +1858,7 @@
       .flyer.inksaver .flyer-cta,
       .flyer.inksaver .flyer-contact,
       .flyer.inksaver .flyer-small {
-        color: #fff !important;
+        color: #000 !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
@@ -1838,107 +1867,123 @@
 </head>
 <body>
   <div class="page">
-    <h1>Zone Flyer Generator (MVP)</h1>
+    <h1>Altagether Flyer Generator</h1>
     <div class="layout">
       <!-- Form -->
       <div class="card">
         <h2>Flyer Content</h2>
         <form id="flyerForm">
           <div class="form-grid">
-            <div>
-              <label for="flyerDesign">Flyer Design</label>
-              <select id="flyerDesign">
-                <option value="poster">Poster (Graphic & Visual)</option>
-                <option value="bold">Bold (Vibrant & Angular)</option>
-                <option value="retro">Retro (Bold & Playful)</option>
-                <option value="mountain">Mountain (Nature Inspired)</option>
-                <option value="inksaver">Ink Saver (Minimal & Illustrated)</option>
-              </select>
-              <div class="help-text">
-                Choose a design style for your flyer.
-              </div>
-            </div>
-            <div>
-              <label for="eventType">Event Type (Optional Template)</label>
-              <div style="display: flex; gap: 0.5rem; align-items: stretch; flex-wrap: wrap;">
-                <select id="eventType" style="flex: 1; min-width: 200px;">
-                  <option value="">-- Select an event type --</option>
-                  <option value="healing-walk">Healing Walk</option>
-                  <option value="coffee-driveway">Coffee in the Driveway</option>
-                  <option value="byo-picnic">Bring-Your-Own-Blanket Picnic</option>
-                  <option value="chalk-art">Kids' Chalk Art Hour</option>
-                  <option value="qa-circle">Neighborhood Q&A Circle</option>
-                  <option value="sunset-gratitude">Sunset Gratitude Gathering</option>
-                </select>
-                <button type="button" class="btn-secondary" onclick="clearTemplate()" style="white-space: nowrap; flex-shrink: 0;">
-                  Clear Template
-                </button>
-              </div>
-              <div class="help-text">
-                Select an event type to auto-fill suggested content, then customize as needed.
-              </div>
-            </div>
-            <div>
-              <label for="zoneName">Your Zone</label>
-              <input id="zoneName" type="text" placeholder="Altadena" />
-            </div>
-            <div>
-              <label for="eventTitle">Event Title</label>
-              <input id="eventTitle" type="text" placeholder="Fire Recovery Neighborhood Meetup" />
-            </div>
-            <div>
-              <label for="subtitle">Short Subtitle / Hook</label>
-              <input id="subtitle" type="text" placeholder="Share updates, ask questions, and plan next steps together." />
-            </div>
-
-            <div class="small-row">
-              <div>
-                <label for="date">Date</label>
-                <input id="date" type="date" />
-              </div>
-              <div>
-                <label for="time">Time</label>
-                <input id="time" type="time" />
+            <!-- Setup Section -->
+            <div class="form-section">
+              <div class="form-section-header">Setup</div>
+              <div class="form-section-content">
+                <div>
+                  <label for="flyerDesign">Flyer Design</label>
+                  <select id="flyerDesign">
+                    <option value="poster">Poster (Graphic & Visual)</option>
+                    <option value="bold">Bold (Vibrant & Angular)</option>
+                    <option value="mountain">Mountain (Nature Inspired)</option>
+                    <option value="inksaver">Ink Saver (Minimal & Illustrated)</option>
+                  </select>
+                  <div class="help-text">
+                    Choose a design style for your flyer.
+                  </div>
+                </div>
+                <div>
+                  <label for="eventType">Event Type (Optional Template)</label>
+                  <div style="display: flex; gap: 0.5rem; align-items: stretch; flex-wrap: wrap;">
+                    <select id="eventType" style="flex: 1; min-width: 200px;">
+                      <option value="">-- Select an event type --</option>
+                      <option value="healing-walk">Healing Walk</option>
+                      <option value="coffee-driveway">Coffee in the Driveway</option>
+                      <option value="byo-picnic">Bring-Your-Own-Blanket Picnic</option>
+                      <option value="chalk-art">Kids' Chalk Art Hour</option>
+                      <option value="qa-circle">Neighborhood Q&A Circle</option>
+                      <option value="sunset-gratitude">Sunset Gratitude Gathering</option>
+                    </select>
+                    <button type="button" class="btn-secondary" onclick="clearTemplate()" style="white-space: nowrap; flex-shrink: 0;">
+                      Clear Template
+                    </button>
+                  </div>
+                  <div class="help-text">
+                    Select an event type to auto-fill suggested content, then customize as needed.
+                  </div>
+                </div>
+                <div id="purposeContainer" style="display: none;">
+                  <div style="font-size: 0.75rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.3rem;">
+                    Event Purpose — Not shown on flyer
+                  </div>
+                  <textarea id="purpose" readonly style="background-color: #f9f9f9; cursor: not-allowed; resize: none;"></textarea>
+                </div>
               </div>
             </div>
 
-            <div>
-              <label for="location">Location</label>
-              <input id="location" type="text" placeholder="1234 Maple Street, Altadena" />
-            </div>
+            <!-- Event Details Section -->
+            <div class="form-section">
+              <div class="form-section-header">Event Details</div>
+              <div class="form-section-content">
+                <div>
+                  <label for="zoneName">Your Zone</label>
+                  <input id="zoneName" type="text" placeholder="Altadena" />
+                </div>
+                <div>
+                  <label for="eventTitle">Event Title</label>
+                  <input id="eventTitle" type="text" placeholder="Fire Recovery Neighborhood Meetup" />
+                </div>
+                <div>
+                  <label for="subtitle">Short Subtitle / Hook</label>
+                  <input id="subtitle" type="text" placeholder="Share updates, ask questions, and plan next steps together." />
+                </div>
 
-            <div>
-              <label for="host">Host / Group</label>
-              <input id="host" type="text" placeholder="Hosted by Eaton Fire Neighborhood Captains" />
-            </div>
+                <div class="small-row">
+                  <div>
+                    <label for="date">Date</label>
+                    <input id="date" type="date" />
+                  </div>
+                  <div>
+                    <label for="time">Time</label>
+                    <input id="time" type="time" />
+                  </div>
+                </div>
 
-            <div>
-              <label for="purpose">Purpose / Highlight Statement</label>
-              <textarea id="purpose" placeholder="Neighbors affected by the Eaton Fire are invited to connect, share information, and help shape our recovery together."></textarea>
-              <div class="help-text">
-                This appears in the highlighted box at the top of the flyer.
+                <div>
+                  <label for="location">Location</label>
+                  <input id="location" type="text" placeholder="1234 Maple Street, Altadena" />
+                </div>
+
+                <div>
+                  <label for="host">Host / Group</label>
+                  <input id="host" type="text" placeholder="Your friendly Neighborhood Captain" />
+                </div>
+
+                <div>
+                  <label for="bodyText">Description (2–4 sentences)</label>
+                  <textarea id="bodyText" placeholder="We'll share the latest updates on fire recovery, swap information about resources, and talk about how we can support each other in the months ahead. Kids welcome. Light snacks provided."></textarea>
+                  <div class="help-text">
+                    This will go in the main body of the flyer.
+                  </div>
+                </div>
+
+                <div>
+                  <label for="contact">Contact / RSVP</label>
+                  <input id="contact" type="text" placeholder="Questions? Contact your Neighborhood Captain." />
+                </div>
+
+                <div>
+                  <label for="footerCta">Footer Message (Line 1)</label>
+                  <input id="footerCta" type="text" placeholder="All neighbors welcome • Please share with your block" />
+                </div>
+
+                <div>
+                  <label for="footerSmall">Footer Message (Line 2)</label>
+                  <input id="footerSmall" type="text" placeholder="This gathering is part of the community-led Eaton Fire recovery effort." />
+                </div>
               </div>
             </div>
 
-            <div>
-              <label for="bodyText">Description (2–4 sentences)</label>
-              <textarea id="bodyText" placeholder="We'll share the latest updates on fire recovery, swap information about resources, and talk about how we can support each other in the months ahead. Kids welcome. Light snacks provided."></textarea>
-              <div class="help-text">
-                This will go in the main body of the flyer.
-              </div>
-            </div>
-
-            <div>
-              <label for="whoShouldCome">Who Should Come</label>
-              <input id="whoShouldCome" type="text" placeholder="Renters, homeowners, and neighbors impacted by the fire and recovery." />
-            </div>
-
-            <div>
-              <label for="contact">Contact / RSVP</label>
-              <input id="contact" type="text" placeholder="RSVP / questions: zone12@altagether.org" />
-            </div>
-
-            <div class="button-row">
+            <!-- Actions -->
+            <div class="button-row" style="margin-top: 1.5rem;">
               <button type="button" class="btn-primary" onclick="updateFlyer()">
                 Generate Flyer
               </button>
@@ -2001,12 +2046,6 @@
                     Eaton Fire Neighborhood Captains
                   </div>
                 </div>
-                <div class="detail-block">
-                  <div class="detail-label">Who Should Come</div>
-                  <div class="detail-value" id="flyerWhoShouldCome">
-                    Renters, homeowners, and neighbors impacted by the fire and recovery.
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -2018,8 +2057,8 @@
 
             <div class="flyer-footer">
               <div>
-                <div class="flyer-cta">All neighbors welcome • Please share with your block</div>
-                <div class="flyer-small">
+                <div class="flyer-cta" id="flyerCta">All neighbors welcome • Please share with your block</div>
+                <div class="flyer-small" id="flyerFooterSmall">
                   This gathering is part of the community-led Eaton Fire recovery effort.
                 </div>
               </div>
@@ -2032,6 +2071,80 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Social Media Preview -->
+      <div class="social-preview-container">
+        <div class="preview-header">
+          <span>Social Media Post Preview (Square format)</span>
+          <span style="font-size:0.75rem;color:#999;">Update, then screenshot</span>
+        </div>
+        <div class="social-preview-scale-container">
+          <div class="flyer flyer-social" id="flyerSocial">
+            <div class="flyer-header">
+              <div>
+                <div class="flyer-logo">Altagether • Keep Altadena Together</div>
+                <div class="flyer-title" id="flyerTitleSocial">Fire Recovery Neighborhood Meetup</div>
+                <div class="flyer-subtitle" id="flyerSubtitleSocial">
+                  Share updates, ask questions, and plan next steps together.
+                </div>
+              </div>
+              <div class="flyer-zone-tag" id="flyerZoneSocial">
+                Zone 12 • East Altadena
+              </div>
+            </div>
+
+            <div class="flyer-highlight" id="flyerHighlightSocial">
+              Neighbors affected by the Eaton Fire are invited to connect, share information,
+              and help shape our recovery together.
+            </div>
+
+            <div class="flyer-info-line" id="flyerInfoLineSocial">
+              📅 Thursday, July 24 • 7:00 PM • 📍 1234 Maple Street, Altadena
+            </div>
+
+            <div class="flyer-details-grid" style="display: none;">
+              <div>
+                <div class="detail-block">
+                  <div class="detail-label">Date &amp; Time</div>
+                  <div class="detail-value" id="flyerDateTimeSocial">Thursday, July 24 • 7:00 PM</div>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Location</div>
+                  <div class="detail-value" id="flyerLocationSocial">
+                    1234 Maple Street, Altadena
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="detail-block">
+                  <div class="detail-label">Hosted By</div>
+                  <div class="detail-value" id="flyerHostSocial">
+                    Eaton Fire Neighborhood Captains
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flyer-body" id="flyerBodySocial">
+              We'll share the latest updates on fire recovery, swap information about resources,
+              and talk about how we can support each other in the months ahead. Bring your
+              questions, ideas, and neighbors. Kids welcome. Light snacks provided.
+            </div>
+
+            <div class="flyer-footer">
+              <div>
+                <!-- Footer messages hidden in social media version -->
+              </div>
+              <div class="flyer-contact">
+                <div class="flyer-small" id="flyerContactSocial">
+                  RSVP / questions: zone12@altagether.org
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
       </div>
 
@@ -2169,6 +2282,9 @@
       const template = eventTemplates[eventType];
       if (!template) return;
 
+      // Show purpose container
+      document.getElementById("purposeContainer").style.display = "block";
+
       // Populate title
       document.getElementById("eventTitle").value = template.title;
       
@@ -2186,12 +2302,14 @@
     }
 
     function clearTemplate() {
+      // Hide purpose container
+      document.getElementById("purposeContainer").style.display = "none";
+      
       document.getElementById("eventType").value = "";
       document.getElementById("eventTitle").value = "";
       document.getElementById("subtitle").value = "";
       document.getElementById("purpose").value = "";
       document.getElementById("bodyText").value = "";
-      document.getElementById("whoShouldCome").value = "";
       updateFlyer();
     }
 
@@ -2206,7 +2324,8 @@
       const body = document.getElementById("bodyText").value.trim();
       const contact = document.getElementById("contact").value.trim();
       const purpose = document.getElementById("purpose").value.trim();
-      const whoShouldCome = document.getElementById("whoShouldCome").value.trim();
+      const footerCta = document.getElementById("footerCta").value.trim();
+      const footerSmall = document.getElementById("footerSmall").value.trim();
       const eventType = document.getElementById("eventType").value;
 
       const flyerTitle = document.getElementById("flyerTitle");
@@ -2218,7 +2337,8 @@
       const flyerBody = document.getElementById("flyerBody");
       const flyerContact = document.getElementById("flyerContact");
       const flyerHighlight = document.getElementById("flyerHighlight");
-      const flyerWhoShouldCome = document.getElementById("flyerWhoShouldCome");
+      const flyerCta = document.getElementById("flyerCta");
+      const flyerFooterSmall = document.getElementById("flyerFooterSmall");
 
       flyerTitle.textContent = title || "Fire Recovery Neighborhood Meetup";
       
@@ -2245,15 +2365,16 @@
       flyerHost.textContent =
         host || "Hosted by local Neighborhood Captains and neighbors";
 
-      flyerWhoShouldCome.textContent =
-        whoShouldCome || "Renters, homeowners, and neighbors impacted by the fire and recovery.";
-
       // Replace placeholders in body text
       flyerBody.textContent = replacePlaceholders(body) ||
         "We'll share the latest updates on fire recovery, swap information about resources, and talk about how we can support each other in the months ahead. Bring your questions, ideas, and neighbors. Kids welcome.";
 
       flyerContact.textContent =
         contact || "Questions? Contact your Neighborhood Captain.";
+
+      flyerCta.textContent = footerCta || "All neighbors welcome • Please share with your block";
+
+      flyerFooterSmall.textContent = footerSmall || "This gathering is part of the community-led Eaton Fire recovery effort.";
 
       // Use purpose from form field if provided, otherwise use template or default
       if (purpose) {
@@ -2266,21 +2387,92 @@
             ? `Neighbors in ${zone} affected by the Eaton Fire are invited to connect, share information, and help shape our recovery together.`
             : "Neighbors affected by the Eaton Fire are invited to connect, share information, and help shape our recovery together.";
       }
+
+      // Update social media preview
+      const flyerTitleSocial = document.getElementById("flyerTitleSocial");
+      const flyerSubtitleSocial = document.getElementById("flyerSubtitleSocial");
+      const flyerZoneSocial = document.getElementById("flyerZoneSocial");
+      const flyerDateTimeSocial = document.getElementById("flyerDateTimeSocial");
+      const flyerLocationSocial = document.getElementById("flyerLocationSocial");
+      const flyerHostSocial = document.getElementById("flyerHostSocial");
+      const flyerBodySocial = document.getElementById("flyerBodySocial");
+      const flyerContactSocial = document.getElementById("flyerContactSocial");
+      const flyerHighlightSocial = document.getElementById("flyerHighlightSocial");
+      const flyerSocial = document.getElementById("flyerSocial");
+
+      // Sync social media preview with main flyer
+      flyerTitleSocial.textContent = flyerTitle.textContent;
+      // Subtitle is hidden in social media version, so don't update it
+      flyerZoneSocial.textContent = flyerZone.textContent;
+      flyerDateTimeSocial.textContent = flyerDateTime.textContent;
+      flyerLocationSocial.textContent = flyerLocation.textContent;
+      flyerHostSocial.textContent = flyerHost.textContent;
+      
+      // Update compact info line for social media - separate lines for Date/Time and Location
+      const flyerInfoLineSocial = document.getElementById("flyerInfoLineSocial");
+      const dateTimeText = flyerDateTime.textContent;
+      const locationText = flyerLocation.textContent;
+      let infoLineText = "";
+      if (dateTimeText && dateTimeText !== "Date & time to be announced") {
+        infoLineText = `📅 ${dateTimeText}`;
+      }
+      if (locationText && locationText !== "Location to be announced") {
+        if (infoLineText) {
+          infoLineText += `\n📍 ${locationText}`;
+        } else {
+          infoLineText = `📍 ${locationText}`;
+        }
+      }
+      flyerInfoLineSocial.textContent = infoLineText || "📅 Date & time to be announced\n📍 Location to be announced";
+      
+      // Clean up body text for social media - remove duplicate date/time/location info
+      let bodyText = flyerBody.textContent;
+      // Remove common patterns like "📅 [Date], [Time]" and "📍 [Location]" or "[Location or Virtual Link]"
+      bodyText = bodyText.replace(/📅\s*\[?Date\]?,?\s*\[?Time\]?/gi, "");
+      bodyText = bodyText.replace(/📍\s*\[?Location(?:\s+or\s+Virtual\s+Link)?\]?/gi, "");
+      bodyText = bodyText.replace(/\[Date\],?\s*\[Time\]/gi, "");
+      bodyText = bodyText.replace(/\[Location(?:\s+or\s+Virtual\s+Link)?\]/gi, "");
+      bodyText = bodyText.replace(/\n\n+/g, "\n"); // Clean up extra line breaks
+      bodyText = bodyText.trim();
+      flyerBodySocial.textContent = bodyText || flyerBody.textContent;
+      
+      flyerContactSocial.textContent = flyerContact.textContent;
+      flyerHighlightSocial.textContent = flyerHighlight.textContent;
+
+      // Social media preview always uses clean design, no template classes
+      flyerSocial.className = "flyer flyer-social";
+
+      // Auto-shrink body text if it overflows (run after DOM updates)
+      setTimeout(() => {
+        const bodySocial = flyerBodySocial;
+        let fontSize = 15;
+        bodySocial.style.fontSize = fontSize + 'px';
+        
+        // Check if content overflows and reduce font size if needed
+        while (bodySocial.scrollHeight > bodySocial.clientHeight && fontSize > 10) {
+          fontSize -= 0.5;
+          bodySocial.style.fontSize = fontSize + 'px';
+        }
+      }, 10);
     }
 
     // Event listener for flyer design selector
     document.getElementById("flyerDesign").addEventListener("change", function() {
       const design = this.value;
       const flyer = document.getElementById("flyer");
-      // Remove all design classes
-      flyer.classList.remove("poster", "bold", "retro", "mountain", "inksaver");
-      // Add the selected design class
+      const flyerSocial = document.getElementById("flyerSocial");
+      
+      // Remove all design classes from main flyer
+      flyer.classList.remove("poster", "bold", "mountain", "inksaver");
+      
+      // Social media always stays clean - no design template classes
+      flyerSocial.className = "flyer flyer-social";
+      
+      // Add the selected design class to main flyer only
       if (design === "poster") {
         flyer.classList.add("poster");
       } else if (design === "bold") {
         flyer.classList.add("bold");
-      } else if (design === "retro") {
-        flyer.classList.add("retro");
       } else if (design === "mountain") {
         flyer.classList.add("mountain");
       } else if (design === "inksaver") {
@@ -2293,6 +2485,9 @@
       const eventType = this.value;
       if (eventType) {
         loadEventTemplate(eventType);
+      } else {
+        // Hide purpose container when no event type selected
+        document.getElementById("purposeContainer").style.display = "none";
       }
     });
 
@@ -2332,15 +2527,18 @@
       updateFlyer();
     });
 
-    document.getElementById("purpose").addEventListener("input", function() {
-      updateFlyer();
-    });
+    // Purpose field is read-only, so no input listener needed
 
-    document.getElementById("whoShouldCome").addEventListener("input", function() {
-      updateFlyer();
-    });
 
     document.getElementById("contact").addEventListener("input", function() {
+      updateFlyer();
+    });
+
+    document.getElementById("footerCta").addEventListener("input", function() {
+      updateFlyer();
+    });
+
+    document.getElementById("footerSmall").addEventListener("input", function() {
       updateFlyer();
     });
 
@@ -2440,7 +2638,9 @@
 
     // Initialize with defaults
     const flyer = document.getElementById("flyer");
+    const flyerSocial = document.getElementById("flyerSocial");
     flyer.classList.add("poster"); // Start with poster design
+    flyerSocial.className = "flyer flyer-social"; // Social media always clean design
     updateFlyer();
   </script>
 </body>
