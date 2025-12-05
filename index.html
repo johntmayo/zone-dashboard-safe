@@ -1222,6 +1222,16 @@
       margin-top: 16px;
     }
 
+    .charts-grid-wide {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 24px;
+    }
+
+    .chart-container-fullwidth {
+      grid-column: 1 / -1; /* Span full width */
+      min-width: 0; /* Allow flex shrinking */
+    }
+
     .chart-container {
       position: relative;
       height: 300px;
@@ -3295,7 +3305,7 @@
       margin-left: 10px;
     }
 
-    /* Dropdown for Damage and Household Status */
+    /* Dropdown for Damage and Property Status */
     .editable-dropdown {
       display: inline-block;
       background: rgba(255, 255, 255, 0.4);
@@ -3751,7 +3761,7 @@
                       <canvas id="zoneOverviewRightRebuildChart"></canvas>
                     </div>
                     <div class="chart-container-small chart-carousel-slide" data-chart-index="2">
-                      <div class="chart-title">Household Status</div>
+                      <div class="chart-title">Property Status</div>
                       <canvas id="zoneOverviewRightHouseholdChart"></canvas>
                     </div>
                   </div>
@@ -3808,12 +3818,18 @@
             <div class="home-panel-content">
               <div class="charts-grid" id="homeChartsGrid">
                 <div class="chart-container">
-                  <div class="chart-title">Household Status</div>
+                  <div class="chart-title">Property Status</div>
                   <canvas id="householdStatusChart"></canvas>
                 </div>
                 <div class="chart-container">
                   <div class="chart-title">Rebuild Status</div>
                   <canvas id="rebuildStatusChart"></canvas>
+                </div>
+              </div>
+              <div class="charts-grid charts-grid-wide" id="homeChartsGridWide" style="display: none;">
+                <div class="chart-container chart-container-fullwidth">
+                  <div class="chart-title">Rebuild Status (Funnel)</div>
+                  <canvas id="rebuildStatusFunnelChart"></canvas>
                 </div>
               </div>
             </div>
@@ -3905,6 +3921,53 @@
           </a>
         </div>
       </div>
+
+      <!-- Property Sales Info Module -->
+      <div class="tool-module" id="propertySalesInfo" data-no-expand="true">
+        <div class="tool-module-header">
+          <h3>Property Sales Info</h3>
+        </div>
+        <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 12px;">
+          <a href="https://www.zillow.com/altadena-ca-91001/land/?searchQueryState=%7B%22pagination%22%3A%7B%7D%2C%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22west%22%3A-118.21982382767011%2C%22east%22%3A-118.06447028152753%2C%22south%22%3A34.15266683718172%2C%22north%22%3A34.23572954575837%7D%2C%22mapZoom%22%3A14%2C%22usersSearchTerm%22%3A%22Altadena%20CA%2091001%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A96265%2C%22regionType%22%3A7%7D%5D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22sf%22%3A%7B%22value%22%3Afalse%7D%2C%22tow%22%3A%7B%22value%22%3Afalse%7D%2C%22mf%22%3A%7B%22value%22%3Afalse%7D%2C%22con%22%3A%7B%22value%22%3Afalse%7D%2C%22apa%22%3A%7B%22value%22%3Afalse%7D%2C%22manu%22%3A%7B%22value%22%3Afalse%7D%2C%22apco%22%3A%7B%22value%22%3Afalse%7D%2C%22doz%22%3A%7B%22value%22%3A%227%22%7D%7D%2C%22isListVisible%22%3Atrue%7D" target="_blank" rel="noopener noreferrer" style="font-weight: bold; color: var(--primary-dark); text-decoration: underline; font-size: 1rem;">
+            New Lots For Sale (last 7 days)
+          </a>
+          <a href="https://www.zillow.com/altadena-ca-91001/land/?searchQueryState=%7B%22pagination%22%3A%7B%7D%2C%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22west%22%3A-118.21982382767011%2C%22east%22%3A-118.06447028152753%2C%22south%22%3A34.153874316895426%2C%22north%22%3A34.23452323757735%7D%2C%22mapZoom%22%3A14%2C%22usersSearchTerm%22%3A%22Altadena%20CA%2091001%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A96265%2C%22regionType%22%3A7%7D%5D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22sf%22%3A%7B%22value%22%3Afalse%7D%2C%22tow%22%3A%7B%22value%22%3Afalse%7D%2C%22mf%22%3A%7B%22value%22%3Afalse%7D%2C%22con%22%3A%7B%22value%22%3Afalse%7D%2C%22apa%22%3A%7B%22value%22%3Afalse%7D%2C%22manu%22%3A%7B%22value%22%3Afalse%7D%2C%22apco%22%3A%7B%22value%22%3Afalse%7D%7D%2C%22isListVisible%22%3Atrue%7D" target="_blank" rel="noopener noreferrer" style="font-weight: bold; color: var(--primary-dark); text-decoration: underline; font-size: 1rem;">
+            All Lots for Sale
+          </a>
+          <a href="https://www.zillow.com/altadena-ca-91001/?searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A34.232110569367%2C%22south%22%3A34.15628922453173%2C%22east%22%3A-118.0801343821745%2C%22west%22%3A-118.20415972702314%7D%2C%22mapZoom%22%3A14%2C%22usersSearchTerm%22%3A%22Altadena%20CA%2091001%22%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A96265%2C%22regionType%22%3A7%7D%5D%2C%22pagination%22%3A%7B%7D%7D" target="_blank" rel="noopener noreferrer" style="font-weight: bold; color: var(--primary-dark); text-decoration: underline; font-size: 1rem;">
+            Everything for Sale
+          </a>
+          <p><a href="https://docs.google.com/spreadsheets/d/1qDFwOTnUq87o12n-EeFIZ0xfcqpGOEoNIGFbDJe33a8/edit?gid=757210531#gid=757210531" target="_blank" rel="noopener noreferrer" style="font-weight: bold; color: var(--primary-dark); text-decoration: underline; font-size: 1rem;">
+            Sold Properties List</a> (by Altadena Not for Sale)</p>
+          
+        </div>
+      </div>
+
+      <!-- Altadena Recovery Wiki Module -->
+      <div class="tool-module" id="altadenaRecoveryWiki" data-no-expand="true">
+        <div class="tool-module-header">
+          <h3>Altadena Recovery Wiki</h3>
+          <p>Comprehensive community resource for Eaton Fire recovery information, including rebuilding guides, permits, financial relief, community support, and professional resources.</p>
+        </div>
+        <div style="margin-top: 16px;">
+          <a href="https://altadenawiki.com/wiki/Main_Page" target="_blank" rel="noopener noreferrer" class="help-link-btn" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: var(--light-cream); text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 8px rgba(188, 108, 37, 0.3), 0 2px 4px rgba(188, 108, 37, 0.2); letter-spacing: 0.5px; cursor: pointer;">
+            📖 Open Recovery Wiki
+          </a>
+        </div>
+      </div>
+
+      <!-- Buildnotes Module -->
+      <div class="tool-module" id="buildnotes" data-no-expand="true">
+        <div class="tool-module-header">
+          <h3>Buildnotes</h3>
+          <p>Buildnotes is a collective purchasing platform for survivors, architects, and builders involved in the LA wildfire rebuild.</p>
+        </div>
+        <div style="margin-top: 16px;">
+          <a href="https://buildnotes.com" target="_blank" rel="noopener noreferrer" class="help-link-btn" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: var(--light-cream); text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 8px rgba(188, 108, 37, 0.3), 0 2px 4px rgba(188, 108, 37, 0.2); letter-spacing: 0.5px; cursor: pointer;">
+            🏗️ Open Buildnotes
+          </a>
+        </div>
+      </div>
       </div>
     </div>
 
@@ -3969,7 +4032,7 @@
     let currentSheetId = null; // Current sheet ID for writing
     let currentStreetFilter = 'all'; // Current street filter
     let currentDamageFilter = 'all'; // Current damage filter
-    let currentStatusFilter = 'all'; // Current household status filter
+    let currentStatusFilter = 'all'; // Current property status filter
     let currentRebuildFilter = 'all'; // Current rebuild status filter
     let currentCaptainFilter = 'all'; // Current captain assigned filter
     let showContactedAddresses = true; // Show addresses with contacted people
@@ -5010,9 +5073,9 @@
       return Array.from(damages).sort();
     }
 
-    // Get unique household status values from all addresses
+    // Get unique property status values from all addresses
     function getUniqueStatus(addresses) {
-      const statusCol = sheetData.headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = sheetData.headers.find(h => h.toLowerCase().includes('property status'));
       if (!statusCol) return [];
       
       const statuses = new Set();
@@ -5113,8 +5176,8 @@
       const rows = sheetData.addressMap.get(address);
       if (!rows || rows.length === 0) return false;
       
-      // First, check Household Status column specifically (most reliable)
-      const statusCol = sheetData.headers.find(h => h.toLowerCase().includes('household status'));
+      // First, check Property Status column specifically (most reliable)
+      const statusCol = sheetData.headers.find(h => h.toLowerCase().includes('property status'));
       if (statusCol) {
         const hasRenterStatus = rows.some(row => {
           const statusValue = String(row[statusCol] || '').toLowerCase().trim();
@@ -5132,8 +5195,8 @@
           const lowerCol = col.toLowerCase();
           const lowerValue = String(row[col] || '').toLowerCase().trim();
           
-          // Skip household status column (already checked above)
-          if (lowerCol.includes('household status')) return false;
+          // Skip property status column (already checked above)
+          if (lowerCol.includes('property status')) return false;
           
           // Check if column name or value contains "renter", "rent", "tenant", "own/rent", etc.
           if (lowerCol.includes('renter') || lowerCol.includes('rent') || lowerCol.includes('tenant') || 
@@ -5166,9 +5229,9 @@
       return null;
     }
 
-    // Get household status value for an address
+    // Get property status value for an address
     function getAddressStatus(address) {
-      const statusCol = sheetData.headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = sheetData.headers.find(h => h.toLowerCase().includes('property status'));
       if (!statusCol) return null;
       const rows = sheetData.addressMap.get(address);
       if (rows && rows.length > 0) {
@@ -5773,7 +5836,7 @@
       const addresses = Array.from(sheetData.addressMap.keys());
       const headers = sheetData.headers;
       const damageCol = headers.find(h => h.toLowerCase().includes('damage'));
-      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('property status'));
       const rebuildCol = headers.find(h => h.toLowerCase().includes('rebuild'));
       const contactDateCol = headers.find(h => h.toLowerCase().includes('contact') && h.toLowerCase().includes('date'));
 
@@ -5826,7 +5889,7 @@
           ${damages.map(damage => `<option value="${damage.replace(/"/g, '&quot;')}" ${currentDamageFilter === damage ? 'selected' : ''}>${damage}</option>`).join('')}
         </select>
         <select id="persistentStatusFilter" class="${currentStatusFilter !== 'all' ? 'filter-active' : ''}">
-          <option value="all" ${currentStatusFilter === 'all' ? 'selected' : ''}>All Household Status</option>
+          <option value="all" ${currentStatusFilter === 'all' ? 'selected' : ''}>All Property Status</option>
           ${statuses.map(status => `<option value="${status.replace(/"/g, '&quot;')}" ${currentStatusFilter === status ? 'selected' : ''}>${status}</option>`).join('')}
         </select>
         ${rebuildCol ? `<select id="persistentRebuildFilter" class="${currentRebuildFilter !== 'all' ? 'filter-active' : ''}">
@@ -6019,7 +6082,7 @@
       
       const headers = sheetData.headers;
       const damageCol = headers.find(h => h.toLowerCase().includes('damage'));
-      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('property status'));
       const rebuildCol = headers.find(h => h.toLowerCase().includes('rebuild'));
       const residentNameCol = headers.find(h => {
         const lower = h.toLowerCase();
@@ -6136,7 +6199,7 @@
                 <th class="sortable" data-sort="address" title="Click to sort">Address ${tableSortColumn === 'address' ? (tableSortDirection === 'asc' ? '↑' : '↓') : ''}</th>
                 <th class="sortable" data-sort="residents" title="Click to sort">Residents ${tableSortColumn === 'residents' ? (tableSortDirection === 'asc' ? '↑' : '↓') : ''}</th>
                 ${damageCol ? `<th class="sortable" data-sort="${damageCol.toLowerCase()}" title="Click to sort">Damage ${tableSortColumn === damageCol.toLowerCase() ? (tableSortDirection === 'asc' ? '↑' : '↓') : ''}</th>` : ''}
-                ${statusCol ? `<th class="sortable" data-sort="${statusCol.toLowerCase()}" title="Click to sort">Household Status ${tableSortColumn === statusCol.toLowerCase() ? (tableSortDirection === 'asc' ? '↑' : '↓') : ''}</th>` : ''}
+                ${statusCol ? `<th class="sortable" data-sort="${statusCol.toLowerCase()}" title="Click to sort">Property Status ${tableSortColumn === statusCol.toLowerCase() ? (tableSortDirection === 'asc' ? '↑' : '↓') : ''}</th>` : ''}
                 ${rebuildCol ? `<th class="sortable" data-sort="${rebuildCol.toLowerCase()}" title="Click to sort">Rebuild Status ${tableSortColumn === rebuildCol.toLowerCase() ? (tableSortDirection === 'asc' ? '↑' : '↓') : ''}</th>` : ''}
                 ${ageCol ? `<th class="sortable" data-sort="${ageCol.toLowerCase()}" title="Click to sort">Age ${tableSortColumn === ageCol.toLowerCase() ? (tableSortDirection === 'asc' ? '↑' : '↓') : ''}</th>` : ''}
                 ${phoneCol ? `<th>Phone</th>` : ''}
@@ -6264,7 +6327,7 @@
       const addresses = Array.from(sheetData.addressMap.keys()).sort();
       const headers = sheetData.headers;
       const damageCol = headers.find(h => h.toLowerCase().includes('damage'));
-      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('property status'));
       const rebuildCol = headers.find(h => h.toLowerCase().includes('rebuild'));
       const contactDateCol = headers.find(h => h.toLowerCase().includes('contact') && h.toLowerCase().includes('date'));
       const captainAssignedCol = headers.find(h => h.toLowerCase().includes('captain assigned'));
@@ -6327,7 +6390,7 @@
       const phoneCol = headers.find(h => h.toLowerCase().includes('phone') && !h.toLowerCase().includes('nc'));
       const emailCol = headers.find(h => h.toLowerCase().includes('email'));
       const damageCol = headers.find(h => h.toLowerCase().includes('damage'));
-      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('property status'));
       const rebuildCol = headers.find(h => h.toLowerCase().includes('rebuild'));
       const contactDateCol = headers.find(h => h.toLowerCase().includes('contact') && h.toLowerCase().includes('date'));
       
@@ -6519,7 +6582,7 @@
       const phoneCol = headers.find(h => h.toLowerCase().includes('phone') && !h.toLowerCase().includes('nc'));
       const emailCol = headers.find(h => h.toLowerCase().includes('email'));
       const damageCol = headers.find(h => h.toLowerCase().includes('damage'));
-      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('property status'));
       const rebuildCol = headers.find(h => h.toLowerCase().includes('rebuild'));
       const contactDateCol = headers.find(h => h.toLowerCase().includes('contact') && h.toLowerCase().includes('date'));
       
@@ -6528,7 +6591,7 @@
       if (phoneCol) csvHeaders.push('Phone');
       if (emailCol) csvHeaders.push('Email');
       if (damageCol) csvHeaders.push('Damage Status');
-      if (statusCol) csvHeaders.push('Household Status');
+      if (statusCol) csvHeaders.push('Property Status');
       if (rebuildCol) csvHeaders.push('Rebuild Status');
       if (contactDateCol) csvHeaders.push('Last Contact');
       
@@ -6752,7 +6815,7 @@
       const addressLevelDisplayFields = [
         'household size',
         'damage',
-        'household status',
+        'property status',
         'address notes',
         'indoors remediated',
         'soil remediated',
@@ -6790,7 +6853,7 @@
         'nc name',
         'nc email',
         'damage',
-        'household status',
+        'property status',
         'household size',
         'latitude',
         'longitude',
@@ -6859,11 +6922,11 @@
       const damageValues = new Set();
       const statusValues = new Set();
       const damageCol = headers.find(h => h.toLowerCase().includes('damage'));
-      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('property status'));
       
       // Default status values (in case not all are found in data)
       const defaultDamageValues = ['Total Loss', 'Partial Loss', 'Standing'];
-      const defaultStatusValues = ['Rebuilding', 'Selling', 'Renter/Moved', 'Staying'];
+      const defaultStatusValues = ['Rebuilding', 'For sale', 'Sold'];
       
       sheetData.data.forEach(row => {
         if (damageCol && row[damageCol] !== undefined && row[damageCol] !== null) {
@@ -6892,6 +6955,10 @@
       const damageStatus = damageCol && rows[0] ? (rows[0][damageCol] || '').trim() : '';
       const showRemediationFields = damageStatus.toLowerCase() === 'standing' || damageStatus.toLowerCase() === 'partial loss';
       
+      // Get property status to check if rebuild stage should be shown
+      const propertyStatus = statusCol && rows[0] ? (rows[0][statusCol] || '').trim() : '';
+      const showRebuildStage = propertyStatus.toLowerCase() === 'rebuilding';
+      
       // Show address-level fields once at the top (always show, not just when signed in)
       if (addressLevelCols.length > 0) {
         html += '<div class="address-level-section" style="background: rgba(255,255,255,0.7); padding: 12px; border-radius: 6px; margin-bottom: 16px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 1px 3px rgba(0,0,0,0.04);">';
@@ -6901,7 +6968,7 @@
           const lower = col.toLowerCase();
           const isNotes = lower.includes('note');
           const isDamage = lower.includes('damage');
-          const isStatus = lower.includes('household status');
+          const isStatus = lower.includes('property status');
           const isRebuildStage = lower.includes('rebuild stage') || lower.includes('rebuild status');
           const isIndoorsRemediated = lower.includes('indoors remediated');
           const isSoilRemediated = lower.includes('soil remediated');
@@ -6910,11 +6977,6 @@
           
           // Skip remediation fields if damage status doesn't match
           if ((isIndoorsRemediated || isSoilRemediated) && !showRemediationFields) {
-            return;
-          }
-          
-          // Skip rebuild status if damage is "Standing"
-          if (isRebuildStage && damageStatus.toLowerCase() === 'standing') {
             return;
           }
           
@@ -6931,10 +6993,22 @@
               </div>`;
             } else if (isDamage || isStatus) {
               // Damage/Status: dropdown
-              const options = isDamage ? Array.from(damageValues).sort() : Array.from(statusValues).sort();
+              let options;
+              if (isDamage) {
+                options = Array.from(damageValues).sort();
+              } else {
+                // Property Status: use specific order
+                const orderedStatusOptions = ['Rebuilding', 'For sale', 'Sold'];
+                options = orderedStatusOptions.filter(opt => statusValues.has(opt));
+                // Add any other status values not in the ordered list at the end
+                const otherStatuses = Array.from(statusValues).filter(opt => !orderedStatusOptions.includes(opt)).sort();
+                options = options.concat(otherStatuses);
+              }
+              const propertyStatusId = isStatus ? `property-status-${address.replace(/[^a-zA-Z0-9]/g, '-')}` : '';
               html += `<div class="person-info">
                 <strong>${col}:</strong>
-                <select class="editable-dropdown" 
+                <select class="editable-dropdown ${isStatus ? 'property-status-dropdown' : ''}" 
+                        id="${propertyStatusId}"
                         data-address="${address.replace(/"/g, '&quot;')}" 
                         data-address-level="true"
                         data-column="${col}"
@@ -6944,7 +7018,7 @@
                 </select>
               </div>`;
             } else if (isRebuildStage) {
-              // Rebuild Status: dropdown with specific options
+              // Rebuild Status: dropdown with specific options - always render but hide if not Rebuilding
               const rebuildStageOptions = [
                 'Debris Removal & Site Clearance',
                 'Professional Selection (Architect/Engineer & Builder)',
@@ -6958,7 +7032,9 @@
                 'Final Inspection & Sign-Off',
                 'Certificate of Occupancy'
               ];
-              html += `<div class="person-info">
+              const rebuildStageId = `rebuild-stage-${address.replace(/[^a-zA-Z0-9]/g, '-')}`;
+              const rebuildStageStyle = showRebuildStage ? '' : 'style="display: none;"';
+              html += `<div class="person-info rebuild-stage-field" id="${rebuildStageId}" ${rebuildStageStyle}>
                 <strong>${col}:</strong>
                 <select class="editable-dropdown" 
                         data-address="${address.replace(/"/g, '&quot;')}" 
@@ -7392,6 +7468,23 @@
         dropdown.addEventListener('change', () => {
           // Mark as changed for save
           dropdown.setAttribute('data-changed', 'true');
+          
+          // If this is a Property Status dropdown, show/hide Rebuild Stage field
+          if (dropdown.classList.contains('property-status-dropdown')) {
+            const address = dropdown.getAttribute('data-address');
+            const propertyStatus = dropdown.value.trim().toLowerCase();
+            const rebuildStageId = `rebuild-stage-${address.replace(/[^a-zA-Z0-9]/g, '-')}`;
+            const rebuildStageField = document.getElementById(rebuildStageId);
+            
+            if (rebuildStageField) {
+              if (propertyStatus === 'rebuilding') {
+                rebuildStageField.style.display = '';
+              } else {
+                rebuildStageField.style.display = 'none';
+              }
+            }
+          }
+          
           // Trigger auto-save
           triggerAutoSave();
         });
@@ -9107,10 +9200,10 @@
         popupContent += '<br>' + residents.join('<br>');
       }
       
-      // Get damage and household status
+      // Get damage and property status
       const firstRow = rows[0];
       const damageCol = sheetData.headers.find(h => h.toLowerCase().includes('damage'));
-      const statusCol = sheetData.headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = sheetData.headers.find(h => h.toLowerCase().includes('property status'));
       const info = [];
       if (damageCol && firstRow[damageCol] && firstRow[damageCol].trim()) {
         info.push(firstRow[damageCol].trim());
@@ -9710,9 +9803,9 @@
             popupContent += '<br>' + residents.join('<br>');
           }
           
-          // Get damage and household status
+          // Get damage and property status
           const damageCol = sheetData.headers.find(h => h.toLowerCase().includes('damage'));
-          const statusCol = sheetData.headers.find(h => h.toLowerCase().includes('household status'));
+          const statusCol = sheetData.headers.find(h => h.toLowerCase().includes('property status'));
           const info = [];
           if (damageCol && firstRow[damageCol] && firstRow[damageCol].trim()) {
             info.push(firstRow[damageCol].trim());
@@ -10102,6 +10195,7 @@
     let damageChart = null;
     let householdStatusChart = null;
     let rebuildStatusChart = null;
+    let rebuildStatusFunnelChart = null;
     let zoneOverviewAddressesChart = null;
     let zoneOverviewDamageChart = null;
     
@@ -10129,7 +10223,7 @@
         h.toLowerCase().includes('contacted')
       );
       const damageCol = headers.find(h => h.toLowerCase().includes('damage'));
-      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('property status'));
 
       // 1. People Contacted Chart
       let peopleContacted = 0;
@@ -10286,7 +10380,15 @@
         return `${label} (${pct}%)`;
       });
       
-      const damageColors = ['#bc455a', '#fdba77', '#b4bd9b', '#81bdc3', '#f6cf98', '#ccd5c3', '#f9d6d3'];
+      // Map damage status to map pin colors
+      const getDamageColor = (label) => {
+        const labelLower = (label || '').toLowerCase();
+        if (labelLower.includes('total')) return '#bc455a'; // Red - total loss
+        if (labelLower.includes('partial')) return '#fdba77'; // Yellow - partial loss
+        if (labelLower.includes('standing')) return '#81bdc3'; // Blue - standing
+        return '#ccd5c3'; // Pale green/gray - unknown
+      };
+      const damageColors = damageLabels.map(label => getDamageColor(label));
 
       const damageCtx = document.getElementById('damageChart');
       if (damageChart) damageChart.destroy();
@@ -10297,7 +10399,7 @@
             labels: damageLabelsWithPct,
             datasets: [{
               data: damageData,
-              backgroundColor: damageColors.slice(0, damageLabels.length),
+              backgroundColor: damageColors,
               borderWidth: 2,
               borderColor: '#fff'
             }]
@@ -10326,7 +10428,7 @@
         });
       }
 
-      // 4. Household Status Chart
+      // 4. Property Status Chart
       const statusCounts = {};
       let statusUnknown = 0;
       if (statusCol) {
@@ -10412,13 +10514,13 @@
       const addressMap = sheetData.addressMap;
       
       // Find relevant columns
-      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('property status'));
       const rebuildCol = headers.find(h => {
         const lower = h.toLowerCase();
         return lower.includes('rebuild');
       });
       
-      // 1. Household Status Bar Chart
+      // 1. Property Status Bar Chart
       const statusCounts = {};
       let statusUnknown = 0;
       if (statusCol) {
@@ -10662,6 +10764,148 @@
             },
             layout: {
               padding: {
+                right: 10
+              }
+            }
+          }
+        });
+      }
+      
+      // 3. Rebuild Status Funnel Chart (Sequential Left-to-Right, All Stages)
+      const rebuildFunnelCtx = document.getElementById('rebuildStatusFunnelChart');
+      if (rebuildStatusFunnelChart) rebuildStatusFunnelChart.destroy();
+      if (rebuildFunnelCtx) {
+        // Define sequential order of stages
+        const sequentialOrder = [
+          'Debris Removal & Site Clearance',
+          'Professional Selection (Architect/Engineer & Builder)',
+          'Plan Preparation & Design Stage',
+          'Permit Application & Submittal',
+          'Plan Check & Agency Review',
+          'Plan Revision & Recheck',
+          'Permit Issuance',
+          'Construction',
+          'Mandatory Inspections',
+          'Final Inspection & Sign-Off',
+          'Certificate of Occupancy'
+        ];
+        
+        // Build funnel data in sequential order (left to right) - include ALL stages
+        const funnelStages = [];
+        const funnelCounts = [];
+        const funnelColors = [];
+        
+        // Add "Not Started" at the beginning
+        const notStartedIndex = allRebuildLabels.indexOf('Not Started');
+        if (notStartedIndex >= 0) {
+          funnelStages.push('Not Started');
+          funnelCounts.push(rebuildData[notStartedIndex] || 0);
+          funnelColors.push(rebuildColors[notStartedIndex % rebuildColors.length]);
+        }
+        
+        // Add all stages in sequential order (including those with 0 counts)
+        sequentialOrder.forEach((stage) => {
+          const stageIndex = allRebuildLabels.indexOf(stage);
+          if (stageIndex >= 0) {
+            funnelStages.push(stage);
+            funnelCounts.push(rebuildData[stageIndex] || 0);
+            funnelColors.push(rebuildColors[stageIndex % rebuildColors.length]);
+          } else {
+            // Stage not in data, add with 0 count
+            funnelStages.push(stage);
+            funnelCounts.push(0);
+            funnelColors.push('#e0e0e0'); // Light gray for empty stages
+          }
+        });
+        
+        // Add "Unknown" at the end
+        const unknownIndex = allRebuildLabels.indexOf('Unknown');
+        if (unknownIndex >= 0) {
+          funnelStages.push('Unknown');
+          funnelCounts.push(rebuildData[unknownIndex] || 0);
+          funnelColors.push(rebuildColors[unknownIndex % rebuildColors.length]);
+        }
+        
+        const total = funnelCounts.reduce((a, b) => a + b, 0);
+        
+        rebuildStatusFunnelChart = new Chart(rebuildFunnelCtx, {
+          type: 'bar',
+          data: {
+            labels: funnelStages,
+            datasets: [{
+              label: 'Households',
+              data: funnelCounts,
+              backgroundColor: funnelColors,
+              borderColor: funnelColors.map(c => c),
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'x', // Vertical bars - stages on x-axis going left to right
+            plugins: {
+              legend: {
+                display: false
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    const percentage = total > 0 ? ((context.parsed / total) * 100).toFixed(1) : '0';
+                    const fullLabel = funnelStages[context.dataIndex] || context.label;
+                    return fullLabel + ': ' + context.parsed + (total > 0 ? ' (' + percentage + '%)' : '');
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                ticks: {
+                  font: {
+                    size: 10
+                  },
+                  maxRotation: 45,
+                  minRotation: 45,
+                  autoSkip: false,
+                  callback: function(value, index) {
+                    const label = funnelStages[index];
+                    if (label && label.length > 25) {
+                      return label.substring(0, 22) + '...';
+                    }
+                    return label;
+                  }
+                },
+                grid: {
+                  display: false
+                }
+              },
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  stepSize: 1,
+                  precision: 0,
+                  font: {
+                    size: 11
+                  }
+                },
+                grid: {
+                  display: true,
+                  color: 'rgba(0, 0, 0, 0.05)'
+                },
+                title: {
+                  display: true,
+                  text: 'Number of Households',
+                  font: {
+                    size: 12
+                  }
+                }
+              }
+            },
+            layout: {
+              padding: {
+                top: 10,
+                bottom: 60,
+                left: 10,
                 right: 10
               }
             }
@@ -11117,7 +11361,7 @@
     }
 
     function getHouseholdStatusData(headers, data, addressMap) {
-      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('property status'));
       const statusCounts = {};
       let statusUnknown = 0;
       
@@ -11317,7 +11561,15 @@
           canvasId: 'zoneOverviewDamageChart',
           render: () => {
             const damageData = getDamageStatusData(headers, data);
-            const damageColors = ['#bc455a', '#fdba77', '#b4bd9b', '#81bdc3', '#f6cf98', '#ccd5c3', '#f9d6d3'];
+            // Map damage status to map pin colors
+            const getDamageColor = (label) => {
+              const labelLower = (label || '').toLowerCase();
+              if (labelLower.includes('total')) return '#bc455a'; // Red - total loss
+              if (labelLower.includes('partial')) return '#fdba77'; // Yellow - partial loss
+              if (labelLower.includes('standing')) return '#81bdc3'; // Blue - standing
+              return '#ccd5c3'; // Pale green/gray - unknown
+            };
+            const damageColors = damageData.labels.map(label => getDamageColor(label));
             const labelsWithCount = damageData.labels.map((label, i) => `${label} (${damageData.data[i]})`);
             return {
               type: 'pie',
@@ -11325,7 +11577,7 @@
                 labels: labelsWithCount,
                 datasets: [{
                   data: damageData.data,
-                  backgroundColor: damageColors.slice(0, damageData.labels.length),
+                  backgroundColor: damageColors,
                   borderWidth: 2,
                   borderColor: '#fff'
                 }]
@@ -11442,10 +11694,10 @@
 
       // Map chart definitions to the correct canvas IDs for each carousel
       // LEFT: Addresses Contacted (0), Streets Distribution (3), People per Address (4)
-      // RIGHT: Damage Status (1), Rebuild Status (5), Household Status (2)
+      // RIGHT: Damage Status (1), Rebuild Status (5), Property Status (2)
       const chartIndexMap = {
         'left': [0, 3, 4],  // Addresses Contacted, Streets Distribution, People per Address
-        'right': [1, 5, 2]  // Damage Status, Rebuild Status, Household Status
+        'right': [1, 5, 2]  // Damage Status, Rebuild Status, Property Status
       };
       
       const canvasIdMap = {
@@ -11821,7 +12073,7 @@
         });
       }
       
-      // Household Status "All" checkbox
+      // Property Status "All" checkbox
       const statusAll = document.getElementById('statusAll');
       const statusOptions = document.querySelectorAll('.status-option');
       
@@ -12037,7 +12289,7 @@
         filters.push(`Damage: ${damageChecked.join(', ')}`);
       }
       
-      // Household status
+      // Property status
       const statusChecked = Array.from(document.querySelectorAll('#customFilterStatus input:checked:not([value="__all__"])'))
         .map(cb => cb.nextElementSibling.textContent.trim());
       if (statusChecked.length > 0 && statusChecked.length < 6) {
@@ -12261,7 +12513,7 @@
         h.toLowerCase().includes('note') && !h.toLowerCase().includes('contact')
       );
       const damageCol = headers.find(h => h.toLowerCase().includes('damage'));
-      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('property status'));
       const contactDateCol = headers.find(h => 
         (h.toLowerCase().includes('contact') && h.toLowerCase().includes('date')) ||
         h.toLowerCase().includes('last contact')
@@ -12294,7 +12546,7 @@
             if (!damageFilter.includes(damageValue)) return;
           }
           
-          // Filter by household status
+          // Filter by property status
           if (statusFilter.length > 0 && statusCol) {
             const status = (row[statusCol] || '').trim();
             // Handle "(not set)" - empty string means no value set
@@ -12759,7 +13011,7 @@
       );
       const emailCol = headers.find(h => h.toLowerCase().includes('email'));
       const damageCol = headers.find(h => h.toLowerCase().includes('damage'));
-      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('property status'));
       const contactDateCol = headers.find(h => 
         (h.toLowerCase().includes('contact') && h.toLowerCase().includes('date')) ||
         h.toLowerCase().includes('last contact')
@@ -12799,7 +13051,7 @@
       
       // Get zone name for title
       const zoneName = currentZoneName ? currentZoneName.trim() : 'Zone';
-      const reportTitle = `${zoneName}: Zone Report`;
+      const reportTitle = `${zoneName} Report`;
       
       let html = `
         <div class="zone-report-header">
@@ -12903,14 +13155,14 @@
             </div>
             <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
               <h3 style="margin: 0 0 16px 0; color: var(--primary-dark); font-size: 1.2rem; text-align: center;">Damage Distribution</h3>
-              <canvas id="reportDamageChart" style="max-height: 250px; max-width: 100%; height: 250px !important;"></canvas>
+              <canvas id="reportDamageChart" style="max-height: 600px; max-width: 100%; height: 600px !important;"></canvas>
             </div>
           </div>
         </div>
         
-        <!-- Household Status Analysis -->
+        <!-- Property Status Analysis -->
         <div class="zone-report-section">
-          <h2 class="zone-report-section-title">Household Status Analysis</h2>
+          <h2 class="zone-report-section-title">Property Status Analysis</h2>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 24px; align-items: start;">
             <div>
               <div class="zone-report-stats-grid">
@@ -12923,8 +13175,29 @@
               </div>
             </div>
             <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-              <h3 style="margin: 0 0 16px 0; color: var(--primary-dark); font-size: 1.2rem; text-align: center;">Household Status Distribution</h3>
-              <canvas id="reportStatusChart" style="max-height: 250px; max-width: 100%; height: 250px !important;"></canvas>
+              <h3 style="margin: 0 0 16px 0; color: var(--primary-dark); font-size: 1.2rem; text-align: center;">Property Status Distribution</h3>
+              <canvas id="reportStatusChart" style="max-height: 600px; max-width: 100%; height: 600px !important;"></canvas>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Rebuild Status Analysis -->
+        <div class="zone-report-section">
+          <h2 class="zone-report-section-title">Rebuild Status</h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 24px; align-items: start;">
+            <div>
+              <div class="zone-report-stats-grid">
+                ${Object.entries(stats.rebuildBreakdown || {}).map(([rebuild, count]) => `
+                  <div class="zone-report-stat-card">
+                    <div class="zone-report-stat-value">${count}</div>
+                    <div class="zone-report-stat-label">${rebuild || 'Not Set'}</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <h3 style="margin: 0 0 16px 0; color: var(--primary-dark); font-size: 1.2rem; text-align: center;">Rebuild Status Distribution</h3>
+              <canvas id="reportRebuildChart" style="max-height: 800px; max-width: 100%; height: 800px !important;"></canvas>
             </div>
           </div>
         </div>
@@ -12935,7 +13208,7 @@
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 24px; align-items: start;">
             <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
               <h3 style="margin: 0 0 16px 0; color: var(--primary-dark); font-size: 1.2rem; text-align: center;">Contact Status</h3>
-              <canvas id="reportContactChart" style="max-height: 250px; max-width: 100%; height: 250px !important;"></canvas>
+              <canvas id="reportContactChart" style="max-height: 600px; max-width: 100%; height: 600px !important;"></canvas>
             </div>
             <div>
               <div class="zone-report-subsection">
@@ -12977,7 +13250,7 @@
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 24px; align-items: start;">
             <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
               <h3 style="margin: 0 0 16px 0; color: var(--primary-dark); font-size: 1.2rem; text-align: center;">Addresses by Street</h3>
-              <canvas id="reportStreetChart" style="max-height: 300px; max-width: 100%; height: 300px !important;"></canvas>
+              <canvas id="reportStreetChart" style="max-height: 500px; max-width: 100%; height: 500px !important;"></canvas>
             </div>
             <div>
               <table class="zone-report-table">
@@ -13098,6 +13371,7 @@
         followupPeople: [],
         damageBreakdown: {},
         statusBreakdown: {},
+        rebuildBreakdown: {},
         contactTimeline: {
           'Last 7 days': 0,
           'Last 30 days': 0,
@@ -13123,7 +13397,8 @@
       );
       const emailCol = headers.find(h => h.toLowerCase().includes('email'));
       const damageCol = headers.find(h => h.toLowerCase().includes('damage'));
-      const statusCol = headers.find(h => h.toLowerCase().includes('household status'));
+      const statusCol = headers.find(h => h.toLowerCase().includes('property status'));
+      const rebuildCol = headers.find(h => h.toLowerCase().includes('rebuild'));
       const contactDateCol = headers.find(h => 
         (h.toLowerCase().includes('contact') && h.toLowerCase().includes('date')) ||
         h.toLowerCase().includes('last contact')
@@ -13147,6 +13422,15 @@
         // Status breakdown
         const status = getAddressStatus(address);
         stats.statusBreakdown[status || 'Not Set'] = (stats.statusBreakdown[status || 'Not Set'] || 0) + 1;
+        
+        // Rebuild status breakdown
+        if (rebuildCol && rows.length > 0) {
+          const rebuildValue = (rows[0][rebuildCol] || '').trim();
+          const rebuildStatus = rebuildValue || 'Not Started';
+          stats.rebuildBreakdown[rebuildStatus] = (stats.rebuildBreakdown[rebuildStatus] || 0) + 1;
+        } else {
+          stats.rebuildBreakdown['Not Started'] = (stats.rebuildBreakdown['Not Started'] || 0) + 1;
+        }
         
         // Contact analysis
         let isContacted = false;
@@ -13263,7 +13547,7 @@
       
       if (statusCol) {
         const complete = allRows.filter(r => r[statusCol] && String(r[statusCol]).trim()).length;
-        stats.dataCompleteness['Household Status'] = {
+        stats.dataCompleteness['Property Status'] = {
           complete,
           missing: totalRows - complete,
           rate: totalRows > 0 ? Math.round((complete / totalRows) * 100) : 0
@@ -13481,7 +13765,15 @@
           const pct = damageTotal > 0 ? ((value / damageTotal) * 100).toFixed(1) : '0';
           return `${label || 'Not Set'} (${pct}%)`;
         });
-        const damageColors = ['#b4bd9b', '#fdba77', '#bc455a', '#81bdc3', '#f6cf98', '#ccd5c3', '#f9d6d3'];
+        // Map damage status to map pin colors
+        const getDamageColor = (label) => {
+          const labelLower = (label || '').toLowerCase();
+          if (labelLower.includes('total')) return '#bc455a'; // Red - total loss
+          if (labelLower.includes('partial')) return '#fdba77'; // Yellow - partial loss
+          if (labelLower.includes('standing')) return '#81bdc3'; // Blue - standing
+          return '#ccd5c3'; // Pale green/gray - unknown
+        };
+        const damageColors = damageLabels.map(label => getDamageColor(label));
         
         new Chart(damageCtx, {
           type: 'pie',
@@ -13489,7 +13781,7 @@
             labels: damageLabelsWithPct,
             datasets: [{
               data: damageData,
-              backgroundColor: damageColors.slice(0, damageLabels.length),
+              backgroundColor: damageColors,
               borderWidth: 2,
               borderColor: '#fff'
             }]
@@ -13497,17 +13789,22 @@
           options: {
             responsive: true,
             maintainAspectRatio: true,
-            aspectRatio: 1.5,
+            aspectRatio: 1,
             plugins: {
               legend: {
                 position: 'bottom',
-                padding: 8,
+                padding: 12,
                 labels: {
-                  padding: 8,
-                  font: { size: 10 }
+                  padding: 12,
+                  font: { size: 16 },
+                  boxWidth: 20,
+                  boxHeight: 20
                 }
               },
               tooltip: {
+                titleFont: { size: 18 },
+                bodyFont: { size: 16 },
+                padding: 12,
                 callbacks: {
                   label: function(context) {
                     const total = context.dataset.data.reduce((a, b) => a + b, 0);
@@ -13550,17 +13847,22 @@
           options: {
             responsive: true,
             maintainAspectRatio: true,
-            aspectRatio: 1.5,
+            aspectRatio: 1,
             plugins: {
               legend: {
                 position: 'bottom',
-                padding: 8,
+                padding: 12,
                 labels: {
-                  padding: 8,
-                  font: { size: 10 }
+                  padding: 12,
+                  font: { size: 16 },
+                  boxWidth: 20,
+                  boxHeight: 20
                 }
               },
               tooltip: {
+                titleFont: { size: 18 },
+                bodyFont: { size: 16 },
+                padding: 12,
                 callbacks: {
                   label: function(context) {
                     const total = context.dataset.data.reduce((a, b) => a + b, 0);
@@ -13569,6 +13871,139 @@
                     return labelWithoutPct + ': ' + context.parsed + ' (' + percentage + '%)';
                   }
                 }
+              }
+            }
+          }
+        });
+      }
+      
+      // Rebuild Status Chart (horizontal bar chart like homepage)
+      const rebuildCtx = document.getElementById('reportRebuildChart');
+      console.log('Rebuild chart canvas found:', !!rebuildCtx);
+      if (rebuildCtx && stats.rebuildBreakdown) {
+        // Define rebuild stages in the same order as homepage
+        const rebuildStages = [
+          'Debris Removal & Site Clearance',
+          'Professional Selection (Architect/Engineer & Builder)',
+          'Plan Preparation & Design Stage',
+          'Permit Application & Submittal',
+          'Plan Check & Agency Review',
+          'Plan Revision & Recheck',
+          'Permit Issuance',
+          'Construction',
+          'Mandatory Inspections',
+          'Final Inspection & Sign-Off',
+          'Certificate of Occupancy'
+        ];
+        
+        // Process rebuild breakdown to include all stages in order
+        const rebuildCounts = {};
+        rebuildStages.forEach(stage => {
+          rebuildCounts[stage] = 0;
+        });
+        rebuildCounts['Not Started'] = 0;
+        rebuildCounts['Unknown'] = 0;
+        
+        // Populate counts from stats.rebuildBreakdown
+        Object.entries(stats.rebuildBreakdown).forEach(([label, count]) => {
+          if (rebuildCounts.hasOwnProperty(label)) {
+            rebuildCounts[label] = count;
+          } else {
+            // Custom stage - add to rebuildCounts
+            rebuildCounts[label] = count;
+          }
+        });
+        
+        // Collect all stages (predefined + custom)
+        const allStagesSet = new Set(rebuildStages);
+        Object.keys(rebuildCounts).forEach(key => {
+          if (key !== 'Not Started' && key !== 'Unknown') {
+            allStagesSet.add(key);
+          }
+        });
+        
+        // Build final labels array: Not Started first, then predefined stages, then custom stages, then Unknown
+        const customStages = Array.from(allStagesSet).filter(s => !rebuildStages.includes(s) && s !== 'Not Started' && s !== 'Unknown');
+        const allRebuildLabels = ['Not Started', ...rebuildStages, ...customStages, 'Unknown'];
+        
+        // Generate data array for all labels (use 0 if stage doesn't exist in rebuildCounts)
+        const rebuildData = allRebuildLabels.map(label => rebuildCounts[label] || 0);
+        
+        const rebuildColors = ['#9e9e9e', '#bc455a', '#fdba77', '#f6cf98', '#b4bd9b', '#81bdc3', '#ccd5c3', '#f9d6d3', '#e0e0e0', '#d4a574', '#c8a2c8', '#a8d8ea'];
+        
+        new Chart(rebuildCtx, {
+          type: 'bar',
+          data: {
+            labels: allRebuildLabels,
+            datasets: [{
+              label: 'Count',
+              data: rebuildData,
+              backgroundColor: rebuildColors.slice(0, allRebuildLabels.length).map((color, i) => rebuildColors[i % rebuildColors.length]),
+              borderColor: rebuildColors.slice(0, allRebuildLabels.length).map((color, i) => rebuildColors[i % rebuildColors.length]),
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: {
+              legend: {
+                display: false
+              },
+              tooltip: {
+                titleFont: { size: 18 },
+                bodyFont: { size: 16 },
+                padding: 12,
+                callbacks: {
+                  label: function(context) {
+                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                    const percentage = total > 0 ? ((context.parsed.x / total) * 100).toFixed(1) : '0';
+                    const fullLabel = allRebuildLabels[context.dataIndex] || context.label;
+                    return fullLabel + ': ' + context.parsed.x + ' (' + percentage + '%)';
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                beginAtZero: true,
+                ticks: {
+                  stepSize: 1,
+                  precision: 0,
+                  font: {
+                    size: 16
+                  }
+                },
+                grid: {
+                  display: true,
+                  color: 'rgba(0, 0, 0, 0.05)'
+                }
+              },
+              y: {
+                ticks: {
+                  font: {
+                    size: 14
+                  },
+                  maxRotation: 0,
+                  autoSkip: false,
+                  callback: function(value, index) {
+                    const label = allRebuildLabels[index];
+                    // Truncate long labels and show full text in tooltip
+                    if (label && label.length > 35) {
+                      return label.substring(0, 32) + '...';
+                    }
+                    return label;
+                  }
+                },
+                grid: {
+                  display: false
+                }
+              }
+            },
+            layout: {
+              padding: {
+                right: 10
               }
             }
           }
@@ -13602,13 +14037,18 @@
             plugins: {
               legend: {
                 position: 'bottom',
-                padding: 10,
+                padding: 12,
                 labels: {
                   padding: 12,
-                  font: { size: 11 }
+                  font: { size: 16 },
+                  boxWidth: 20,
+                  boxHeight: 20
                 }
               },
               tooltip: {
+                titleFont: { size: 18 },
+                bodyFont: { size: 16 },
+                padding: 12,
                 callbacks: {
                   label: function(context) {
                     const total = context.dataset.data.reduce((a, b) => a + b, 0);
@@ -13655,6 +14095,9 @@
                 display: false
               },
               tooltip: {
+                titleFont: { size: 18 },
+                bodyFont: { size: 16 },
+                padding: 12,
                 callbacks: {
                   label: function(context) {
                     return 'Addresses: ' + context.parsed.y;
@@ -13666,13 +14109,19 @@
               y: {
                 beginAtZero: true,
                 ticks: {
-                  stepSize: 1
+                  stepSize: 1,
+                  font: {
+                    size: 16
+                  }
                 }
               },
               x: {
                 ticks: {
                   maxRotation: 45,
-                  minRotation: 45
+                  minRotation: 45,
+                  font: {
+                    size: 14
+                  }
                 }
               }
             }
